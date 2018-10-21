@@ -66,6 +66,4 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/stafficon" />
         </android.support.v7.widget.CardView>
-    </LinearLayout>
-
 </LinearLayout>
