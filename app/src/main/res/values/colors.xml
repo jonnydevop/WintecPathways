@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="startOrangeGradient">#D1750E</color>
     <color name="endOrangeGradient">#F8C182</color>
+    <color name="orangecard">#EBA14F</color>
+
 </resources>
