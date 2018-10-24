@@ -15,6 +15,7 @@ public class PathwayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pathway);
 
+
         ActionBar actionBar = getSupportActionBar();
     }
     @Override
