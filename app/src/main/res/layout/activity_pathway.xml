@@ -5,123 +5,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="45dp"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="EXPLORE YOUR PATHWAY"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="15dp"/>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/orangecard"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        >
+        android:layout_margin="45dp">
 
-        <TextView
-            android:id="@+id/networkingText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_margin="14dp"
-            android:text="Networking"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-    </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EXPLORE YOUR PATHWAY"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="15dp"/>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/orangecard"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp">
+        </LinearLayout>
 
-         <TextView
-             android:id="@+id/softwareText"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:layout_gravity="bottom"
-             android:layout_margin="14dp"
-             android:text="Software Engineering"
-             android:textStyle="bold"
-             android:textAlignment="center"
-             android:textColor="@android:color/black"
-             android:textSize="22sp"
-             />
 
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/orangecard"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp">
-
-        <TextView
-            android:id="@+id/databasesText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_margin="14dp"
-            android:text="Databases"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/orangecard"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp">
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/orangecard"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                >
 
-        <TextView
-            android:id="@+id/multimediaText"
+                <TextView
+                    android:id="@+id/networkingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="14dp"
+                    android:text="Networking"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_margin="14dp"
-            android:text="Multimedia"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/orangecard"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/softwareText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="14dp"
+                    android:text="Software Engineering"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    />
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/orangecard"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/databasesText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="14dp"
+                    android:text="Databases"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardBackgroundColor="@color/orangecard"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/multimediaText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="14dp"
+                    android:text="Multimedia"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

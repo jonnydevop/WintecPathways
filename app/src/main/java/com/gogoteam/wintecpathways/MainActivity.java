@@ -1,9 +1,12 @@
 package com.gogoteam.wintecpathways;
 
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +15,13 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.LinearLayout;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView studentCard;
+    CardView studentCard, staffCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
+
         final SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
 
         String lver = pref.getString("Version", "");
@@ -55,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         studentCard = (CardView)findViewById(R.id.studentView);
+        staffCard = (CardView)findViewById(R.id.staffView);
         studentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +70,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        staffCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final PasswordDialog myDialog = new PasswordDialog(MainActivity.this);
+                myDialog.setCancelable(false);
+                myDialog.show();
+
+            }
+        });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.about_menu, menu);
@@ -85,5 +103,7 @@ public class MainActivity extends AppCompatActivity {
         aboutItem.setOnActionExpandListener(onActionExpandListener);
         return true;
     }
+
+
 
 }
