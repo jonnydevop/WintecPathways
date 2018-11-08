@@ -466,31 +466,30 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Load Data
-    public void loadData(String filePath) {
-        //ArrayList newList = new ArrayList<String>();
+    public int loadData(String filePath) {
 
         loadModule();
-        //loadStudent();
+        loadStudent();
 
-        //Student student = new Student();
-        //List<Student> studentList = searchStudent(student);
+        Student student = new Student();
+        List<Student> studentList = searchStudent(student);
 
         //Module module = new Module();
         //module.setYear("3");
         //List<Module> moduleList = searchModule(module);
 
-        //return 0;//studentList.size();
+        return studentList.size();
     }
 
-    //Load module
+    //Load Student
     public void loadStudent() {
         Student student;
-        StudentModule studentModule;
         List<StudentModule> moduleList = new LinkedList<>();
 
         //Delete table
         deleteStudent("ALL");
 
+        //Add Student
         student = new Student();
         student.setSID("16000000");
         student.setSName("Juan");
@@ -504,7 +503,7 @@ public class DBHandler extends SQLiteOpenHelper {
         addStudent(student);
     }
 
-        //Load module
+    //Load module
     public void loadModule() {
         Module module;
 

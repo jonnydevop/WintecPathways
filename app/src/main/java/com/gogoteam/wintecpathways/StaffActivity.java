@@ -30,7 +30,7 @@ public class StaffActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.about_menu, menu);
+        getMenuInflater().inflate(R.menu.staff_menu, menu);
 
         MenuItem.OnActionExpandListener onActionExpandListener = new MenuItem.OnActionExpandListener() {
             @Override
@@ -46,7 +46,7 @@ public class StaffActivity extends AppCompatActivity {
             }
         };
 
-        MenuItem aboutItem = menu.findItem(R.id.aboutitem);
+        MenuItem aboutItem = menu.findItem(R.id.importitem);
         aboutItem.setOnActionExpandListener(onActionExpandListener);
         return true;
     }
