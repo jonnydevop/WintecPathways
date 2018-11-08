@@ -6,4 +6,12 @@
     Pathways may change accordingly making older versions redundant - Wintec takes no responsibility
     of outdated pathways or information displayed on the app.</string>
     <string name="version">1</string>
+
+
+    <array name="pathways">
+        <item>Networking</item>
+        <item>Databases</item>
+        <item>Software Engineering</item>
+        <item>Multimedia</item>
+    </array>
 </resources>

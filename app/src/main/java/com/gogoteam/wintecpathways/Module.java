@@ -3,6 +3,8 @@ package com.gogoteam.wintecpathways;
 public class Module {
     private	String MID;
     private	String MName;
+    private	String Description;
+    private	String Level;
     private	String PreMID_1;
     private	String PreMID_2;
     private	String PreMID_3;
@@ -112,5 +114,21 @@ public class Module {
 
     public void setSemester(String semester) {
         Semester = semester;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getLevel() {
+        return Level;
+    }
+
+    public void setLevel(String level) {
+        Level = level;
     }
 }

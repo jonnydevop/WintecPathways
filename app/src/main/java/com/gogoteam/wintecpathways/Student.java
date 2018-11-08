@@ -1,4 +1,6 @@
 package com.gogoteam.wintecpathways;
+import java.util.List;
+import java.util.LinkedList;
 
 public class Student {
     private	String SID;
@@ -7,9 +9,10 @@ public class Student {
     private	String Specialisation;
     private	String Programme;
     private String Date_Enrolled;
+    private List<StudentModule> studentModules;
 
     public Student() {
-
+        studentModules = new LinkedList<>();
     }
 
     public String getSID() {
@@ -58,5 +61,13 @@ public class Student {
 
     public void setDate_Enrolled(String date_Enrolled) {
         Date_Enrolled = date_Enrolled;
+    }
+
+    public List<StudentModule> getModules() {
+        return studentModules;
+    }
+
+    public void setModules(List<StudentModule> modules) {
+        this.studentModules = modules;
     }
 }
