@@ -2,6 +2,9 @@ package com.gogoteam.wintecpathways;
 import java.util.List;
 import java.util.LinkedList;
 
+import java.util.List;
+import java.util.LinkedList;
+
 public class Student {
     private	String SID;
     private	String SName;

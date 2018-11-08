@@ -26,11 +26,26 @@
         <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".PathwayActivity"
+
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".StaffActivity"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".AddStudentActivity"/>
+
+
+
+
+
+
+
+
+
+
+
+        <activity
+            android:name=".StudentModuleViewActivity"
+            android:parentActivityName=".PathwayActivity"/>
 
     </application>
 
