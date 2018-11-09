@@ -109,7 +109,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Add a student
     public boolean addStudent(Student student) {
         //Duplicate check
-        if (isMIDDuplicate(student.getSID())) {return false;}
+        if (isSIDDuplicate(student.getSID())) {return false;}
 
         ContentValues values;
         SQLiteDatabase db = getWritableDatabase();
@@ -164,33 +164,40 @@ public class DBHandler extends SQLiteOpenHelper {
         db.update(TABLE_STUDENT, values, COLUMN_SID, whereArgs);
 
         //Update Student Module
-        if (student.getModules() != null) { updateStudentModule(student.getModules()); }
+        if (student.getModules() != null)
+        {
+            updateStudentModule(student.getSID(), student.getModules());
+        }
 
         db.close();
     }
 
     //Update student module
-    public void updateStudentModule(List<StudentModule> smList) {
+    public void updateStudentModule(String SID, List<StudentModule> smList) {
         //Delete by SID
-        deleteStudentModule(smList.get(0).getSID());
+        deleteStudentModule(SID);
         //Add student module
         addStudentModule(smList);
     }
 
     //Delete a student
-    public void deleteStudent(String SID) {
+    public boolean deleteStudent(String SID) {
         SQLiteDatabase db = getWritableDatabase();
+        boolean delFlag = true;
 
         if (SID.equalsIgnoreCase("ALL")) {
             db.execSQL("DELETE FROM " + TABLE_STUDENT);
             deleteStudentModule(SID);
         } else {
-            if (!isEnrolled(SID)) {
+            if (isEnrolled(SID)) {
+                delFlag = false;
+            } else {
                 db.execSQL("DELETE FROM " + TABLE_STUDENT + " WHERE SID = '" + SID + "'");
                 deleteStudentModule(SID);
             }
         }
         db.close();
+        return delFlag;
     }
 
     //Delete student module
@@ -220,13 +227,13 @@ public class DBHandler extends SQLiteOpenHelper {
         StudentModule sm;
 
         String query = "SELECT * FROM " + TABLE_STUDENT + " WHERE 1=1";
-        if (!conditions.getSID().equals("")) {
+        if (conditions.getSID() != null) {
             query = query + " AND " + COLUMN_SID + " = '" + conditions.getSID() + "'";
         }
-        if (!conditions.getSName().equals("")) {
+        if (conditions.getSName() != null) {
             query = query + " AND " + COLUMN_SName + " = '" + conditions.getSName() + "'";
         }
-        if (!conditions.getDate_Enrolled().equals("")) {
+        if (conditions.getDate_Enrolled() != null) {
             query = query + " AND " + COLUMN_Date_Enrolled+ " != ''";
         }
         query = query + " ORDER BY " + COLUMN_SID;
@@ -243,7 +250,6 @@ public class DBHandler extends SQLiteOpenHelper {
             student.setSpecialisation(c.getString(c.getColumnIndex("Specialisation")));
             student.setProgramme(c.getString(c.getColumnIndex("Programme")));
             student.setDate_Enrolled(c.getString(c.getColumnIndex("Date_Enrolled")));
-            student.setModules(searchStudentModule(c.getString(c.getColumnIndex("SID"))));
 
             //student module information
             student.setModules(searchStudentModule(c.getString(c.getColumnIndex("SID"))));
@@ -252,7 +258,6 @@ public class DBHandler extends SQLiteOpenHelper {
             studentList.add(student);
             c.moveToNext();
         }
-
         db.close();
         return studentList;
     }
@@ -293,7 +298,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String query = "SELECT * "
                 + " FROM " + TABLE_STUDENT
-                + " WHERE " + COLUMN_MID + " = '" + SID + "'";
+                + " WHERE " + COLUMN_SID + " = '" + SID + "'";
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst();
 
@@ -317,6 +322,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return returnValue;
     }
+
+    /////////////////////////Student method ends here////////////////////////////
 
     /////////////////////////Module method begins here////////////////////////////
 
@@ -410,9 +417,9 @@ public class DBHandler extends SQLiteOpenHelper {
         //Search by Pathway
         if (conditions.getPathway_1() != null) {
             query = query + " AND (" + COLUMN_Pathway_1 + " = '" + conditions.getPathway_1() + "'"
-                            + " OR " + COLUMN_Pathway_2 + " = '" + conditions.getPathway_1() + "'"
-                            + " OR " + COLUMN_Pathway_3 + " = '" + conditions.getPathway_1() + "'"
-                            + " OR " + COLUMN_Pathway_1 + " = '')";
+                    + " OR " + COLUMN_Pathway_2 + " = '" + conditions.getPathway_1() + "'"
+                    + " OR " + COLUMN_Pathway_3 + " = '" + conditions.getPathway_1() + "'"
+                    + " OR " + COLUMN_Pathway_1 + " = '')";
         }
         //Search by Year
         if (conditions.getYear() != null) {
@@ -466,13 +473,14 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Load Data
-    public int loadData(String filePath) {
+    public int loadData() {
 
         loadModule();
         loadStudent();
 
         Student student = new Student();
-        List<Student> studentList = searchStudent(student);
+        List<Student> studentList = new LinkedList<>();
+        studentList = searchStudent(student);
 
         //Module module = new Module();
         //module.setYear("3");
@@ -484,13 +492,13 @@ public class DBHandler extends SQLiteOpenHelper {
     //Load Student
     public void loadStudent() {
         Student student;
-        List<StudentModule> moduleList = new LinkedList<>();
+        List<StudentModule> moduleList;
 
         //Delete table
         deleteStudent("ALL");
-
         //Add Student
         student = new Student();
+        moduleList = new LinkedList<>();
         student.setSID("16000000");
         student.setSName("Juan");
         student.setEmail("Juan@student.wintec.nz.co");
@@ -498,7 +506,57 @@ public class DBHandler extends SQLiteOpenHelper {
         student.setProgramme("Bachelor of Applied IT");
         student.setDate_Enrolled("20170101");
         moduleList.add(new StudentModule("16000000","COMP501","Yes"));
+        moduleList.add(new StudentModule("16000000","INFO601","Yes"));
         moduleList.add(new StudentModule("16000000","INFO704","Yes"));
+        student.setModules(moduleList);
+        addStudent(student);
+
+        student = new Student();
+        moduleList = new LinkedList<>();
+        student.setSID("16000001");
+        student.setSName("Nancy");
+        student.setEmail("Nancy@student.wintec.nz.co");
+        student.setSpecialisation("Software Engineering");
+        student.setProgramme("Bachelor of Applied IT");
+        student.setDate_Enrolled("20170102");
+        moduleList.add(new StudentModule("16000001","COMP501","Yes"));
+        moduleList.add(new StudentModule("16000001","INFO703","No"));
+        student.setModules(moduleList);
+        addStudent(student);
+
+        student = new Student();
+        moduleList = new LinkedList<>();
+        student.setSID("16000002");
+        student.setSName("Crisita");
+        student.setEmail("Crisita@student.wintec.nz.co");
+        student.setSpecialisation("Software Engineering");
+        student.setProgramme("Bachelor of Applied IT");
+        student.setDate_Enrolled("20170103");
+        moduleList.add(new StudentModule("16000002","COMP502","Yes"));
+        student.setModules(moduleList);
+        addStudent(student);
+
+        student = new Student();
+        moduleList = new LinkedList<>();
+        student.setSID("16000003");
+        student.setSName("Venkate");
+        student.setEmail("Venkate@student.wintec.nz.co");
+        student.setSpecialisation("Software Engineering");
+        student.setProgramme("Bachelor of Applied IT");
+        student.setDate_Enrolled("20170104");
+        moduleList.add(new StudentModule("16000003","COMP502","Yes"));
+        student.setModules(moduleList);
+        addStudent(student);
+
+        student = new Student();
+        moduleList = new LinkedList<>();
+        student.setSID("16000004");
+        student.setSName("Chris");
+        student.setEmail("Chris@student.wintec.nz.co");
+        student.setSpecialisation("Software Engineering");
+        student.setProgramme("Bachelor of Applied IT");
+        student.setDate_Enrolled("20170105");
+        moduleList.add(new StudentModule("16000004","COMP502","Yes"));
         student.setModules(moduleList);
         addStudent(student);
     }

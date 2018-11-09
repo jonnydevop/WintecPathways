@@ -12,6 +12,7 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class StaffActivity extends AppCompatActivity {
@@ -52,10 +53,24 @@ public class StaffActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
+        int a;
         switch(item.getItemId()){
             case android.R.id.home:
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                return true;
+            case R.id.importitem:
+                a = dbHandler.loadData();
+                TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
+                buckysText1.setText(String.valueOf(a));
+                return true;
+            case R.id.exportitem:
+                /*
+                a = dbHandler.loadData();
+                TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
+                buckysText1.setText(String.valueOf(a));
+                */
                 return true;
         }
         return false;
