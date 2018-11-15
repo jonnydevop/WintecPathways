@@ -34,12 +34,11 @@
                     android:background="#dadada"
                     android:orientation="vertical">
 
-
                     <android.support.v7.widget.RecyclerView
-                        android:id = "@+id/recyclerView"
+                        android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
+                        android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
 
                 <!---Tab2-->
@@ -50,12 +49,11 @@
                     android:background="#fafafa"
                     android:orientation="vertical">
 
-
                     <android.support.v7.widget.RecyclerView
                         android:id = "@+id/recyclerView2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
+                        android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
 
                 <!---Tab3-->
@@ -66,21 +64,14 @@
                     android:background="#ededed"
                     android:orientation="vertical">
 
-
                     <android.support.v7.widget.RecyclerView
                         android:id = "@+id/recyclerView3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
+                        android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
 
-
             </FrameLayout>
-
-
-
         </LinearLayout>
-
     </TabHost>
-
 </LinearLayout>

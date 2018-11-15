@@ -17,6 +17,7 @@ public class PathwayActivity extends AppCompatActivity {
     CardView softwareEngineering;
     CardView dataBases;
     CardView multimedia;
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,35 +27,49 @@ public class PathwayActivity extends AppCompatActivity {
         getWindow().setExitTransition(new Explode());
         ActionBar actionBar = getSupportActionBar();
 
+        final Intent studentModActivityPage = new Intent(PathwayActivity.this, StudentModuleViewActivity.class);
+
+        //network pathway
         networking = (CardView)findViewById(R.id.card_view1);
         networking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PathwayActivity.this, StudentModuleViewActivity.class));
+                bundle.putString("pathway","Networking");
+                studentModActivityPage.putExtras(bundle);
+                startActivity(studentModActivityPage);
             }
         });
 
+        //Software Engineering pathway
         softwareEngineering = (CardView)findViewById(R.id.card_view2);
         softwareEngineering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PathwayActivity.this, StudentModuleViewActivity.class));
+                bundle.putString("pathway","softwareEngineering");
+                studentModActivityPage.putExtras(bundle);
+                startActivity(studentModActivityPage);
             }
         });
 
+        //Databases pathway
         dataBases = (CardView)findViewById(R.id.card_view3);
         dataBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PathwayActivity.this, StudentModuleViewActivity.class));
+                bundle.putString("pathway","databases");
+                studentModActivityPage.putExtras(bundle);
+                startActivity(studentModActivityPage);
             }
         });
 
+        //Multimedia pathway
         multimedia = (CardView)findViewById(R.id.card_view4);
         multimedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PathwayActivity.this, StudentModuleViewActivity.class));
+                bundle.putString("pathway","multimedia");
+                studentModActivityPage.putExtras(bundle);
+                startActivity(studentModActivityPage);
             }
         });
 

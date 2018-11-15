@@ -14,4 +14,34 @@
         <item>Software Engineering</item>
         <item>Multimedia</item>
     </array>
+
+    <string-array name="networkingModules">
+        <item>"IT Operations"</item>
+        <item>"Fundamentals of Programming and Problem Solving"</item>
+        <item>"Professional Practice"</item>
+        <item>"Business Systems Analysis and Design"</item>
+        <item>"Introduction to Networks (Cisco 1)"</item>
+        <item>"Operating Systems and Systems Support"</item>
+        <item>"Database Principles"</item>
+        <item>"Technical Support"</item>
+
+        <item>"Object Oriented Programming"</item>
+        <item>"Data-modelling and SQL"</item>
+        <item>"Mathematics for IT"</item>
+        <item>"Web Development"</item>
+        <item>"Business, Interpersonal Communications and Technical Writing"</item>
+        <item>"The Web Environment"</item>
+        <item>"Systems Administration"</item>
+        <item>"Routing and Switching Essentials"</item>
+
+        <item>"Project Management (Prince2)"</item>
+        <item>"Business Essentials for IT Professionals"</item>
+        <item>"Network Security"</item>
+        <item>"Scaling Networks"</item>
+        <item>"Connecting Networks"</item>
+        <item>"Cyber-Security"</item>
+        <item>"Advanced Networking"</item>
+        <item>"Network Engineering Project"</item>
+
+    </string-array>
 </resources>
