@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class StudentModuleViewActivity extends AppCompatActivity {
@@ -39,6 +40,10 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         //tabHost
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
+
+        dbHandler = new DBHandler(this, null, null, 1);
+        List<Module> moduleList = dbHandler.retrievePathway("Software Engineering");
+        Log.i("chris", "showModuleInfo  " + String.valueOf(moduleList.size()));
 
         //tab1
         TabHost.TabSpec spec = tabHost.newTabSpec("Year one ");
@@ -170,9 +175,8 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
     public void showModuleInfo()
     {
-
-        module = new Module();
         dbHandler = new DBHandler(this, null, null, 1);
+        module = new Module();
 
         moduleInfo = getIntent().getExtras();
         if (moduleInfo == null){

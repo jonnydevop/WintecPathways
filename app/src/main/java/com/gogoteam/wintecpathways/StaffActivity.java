@@ -62,7 +62,7 @@ public class StaffActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         DBHandler dbHandler = new DBHandler(this, null, null, 1);
-        int a;
+
         switch(item.getItemId()){
             case android.R.id.home:
                 finish();
@@ -92,8 +92,7 @@ public class StaffActivity extends AppCompatActivity {
                     catch(Exception exception) {
                         Toast.makeText(this, "failed!"+exception.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }
-                */
+                }*/
                 return true;
         }
         return false;

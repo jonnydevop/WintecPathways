@@ -455,6 +455,57 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return moduleList;
     }
+    //Available search conditions: Pathway
+    public List<Module> retrievePathway(String pathway) {
+        //DB connection
+        SQLiteDatabase db = getWritableDatabase();
+        //Cursor point to a location in results
+        Cursor c;
+        //Search result list
+        List<Module> moduleList = new LinkedList<>();
+        //Module instance
+        Module module = new Module();
+
+        //Get search results
+        String query = "SELECT * FROM " + TABLE_MODULE + " WHERE 1=1";
+
+        //Search by Pathway
+        if (pathway != null) {
+            query = query + " AND (" + COLUMN_Pathway_1 + " = '" + pathway + "'"
+                    + " OR " + COLUMN_Pathway_2 + " = '" + pathway + "'"
+                    + " OR " + COLUMN_Pathway_3 + " = '" + pathway + "'"
+                    + " OR " + COLUMN_Pathway_1 + " = '')";
+        }
+        query = query + " ORDER BY " + COLUMN_Year + "," + COLUMN_Semester;
+        c = db.rawQuery(query,null);
+        //Move to the first row in your results
+        c.moveToFirst();
+
+        while (!c.isAfterLast()) {
+            module = new Module();
+
+            module.setMID(c.getString(c.getColumnIndex("MID")));
+            module.setMName(c.getString(c.getColumnIndex("MName")));
+            module.setDescription(c.getString(c.getColumnIndex("Description")));
+            module.setLevel(c.getString(c.getColumnIndex("Level")));
+            module.setPreMID_1(c.getString(c.getColumnIndex("PreMID_1")));
+            module.setPreMID_2(c.getString(c.getColumnIndex("PreMID_2")));
+            module.setPreMID_3(c.getString(c.getColumnIndex("PreMID_3")));
+            module.setPathway_1(c.getString(c.getColumnIndex("Pathway_1")));
+            module.setPathway_2(c.getString(c.getColumnIndex("Pathway_2")));
+            module.setPathway_3(c.getString(c.getColumnIndex("Pathway_3")));
+            module.setClassification(c.getString(c.getColumnIndex("Classification")));
+            module.setCredits(c.getString(c.getColumnIndex("Credits")));
+            module.setYear(c.getString(c.getColumnIndex("Year")));
+            module.setSemester(c.getString(c.getColumnIndex("Semester")));
+
+            moduleList.add(module);
+            c.moveToNext();
+        }
+
+        db.close();
+        return moduleList;
+    }
 
     //Check duplication of module ID
     public boolean isMIDDuplicate(String MID) {
@@ -473,20 +524,20 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Load Data
-    public int loadData() {
+    public void loadData() {
 
         loadModule();
         loadStudent();
 
-        Student student = new Student();
-        List<Student> studentList = new LinkedList<>();
-        studentList = searchStudent(student);
+        //Student student = new Student();
+        //List<Student> studentList = new LinkedList<>();
+        //studentList = searchStudent(student);
 
         //Module module = new Module();
         //module.setYear("3");
         //List<Module> moduleList = searchModule(module);
-
-        return studentList.size();
+        //List<Module> moduleList = retrievePathway("Database");
+        //return moduleList.size();
     }
 
     //Load Student
