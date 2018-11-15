@@ -30,44 +30,44 @@ public class PathwayActivity extends AppCompatActivity {
         final Intent studentModActivityPage = new Intent(PathwayActivity.this, StudentModuleViewActivity.class);
 
         //network pathway
-        networking = (CardView)findViewById(R.id.card_view1);
+        networking = findViewById(R.id.card_view1);
         networking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bundle.putString("pathway","Networking");
+                bundle.putString("pathway","Network Engineering");
                 studentModActivityPage.putExtras(bundle);
                 startActivity(studentModActivityPage);
             }
         });
 
         //Software Engineering pathway
-        softwareEngineering = (CardView)findViewById(R.id.card_view2);
+        softwareEngineering = findViewById(R.id.card_view2);
         softwareEngineering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bundle.putString("pathway","softwareEngineering");
+                bundle.putString("pathway","Software Engineering");
                 studentModActivityPage.putExtras(bundle);
                 startActivity(studentModActivityPage);
             }
         });
 
         //Databases pathway
-        dataBases = (CardView)findViewById(R.id.card_view3);
+        dataBases = findViewById(R.id.card_view3);
         dataBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bundle.putString("pathway","databases");
+                bundle.putString("pathway","Database Architecture");
                 studentModActivityPage.putExtras(bundle);
                 startActivity(studentModActivityPage);
             }
         });
 
         //Multimedia pathway
-        multimedia = (CardView)findViewById(R.id.card_view4);
+        multimedia = findViewById(R.id.card_view4);
         multimedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bundle.putString("pathway","multimedia");
+                bundle.putString("pathway","Multimedia and Web Development");
                 studentModActivityPage.putExtras(bundle);
                 startActivity(studentModActivityPage);
             }

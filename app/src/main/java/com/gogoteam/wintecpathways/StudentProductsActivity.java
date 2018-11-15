@@ -6,14 +6,14 @@ public class StudentProductsActivity {
     private String title;
     private String shortdesc;
     private String button;
-    private int image;
+    //private int image;
 
-    public StudentProductsActivity(String id, String title, String shortdesc, String button, int image) {
+    public StudentProductsActivity(String id, String title, String shortdesc, String button) {
         this.id = id;
         this.title = title;
         this.shortdesc = shortdesc;
         this.button = button;
-        this.image = image;
+        //this.image = image;
     }
 
     public String getId() {
@@ -33,7 +33,7 @@ public class StudentProductsActivity {
     }
 
 
-    public int getImage() {
-        return image;
-    }
+    //public int getImage() {
+        //return image;
+
 }
