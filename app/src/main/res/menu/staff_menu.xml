@@ -5,7 +5,6 @@
 
     <item
         android:id="@+id/importitem"
-        android:onClick="loadData"
         android:orderInCategory="1"
         android:title="Import data"
         app:showAsAction="never" />

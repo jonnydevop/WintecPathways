@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 
 public class StaffActivity extends AppCompatActivity {
@@ -61,15 +69,30 @@ public class StaffActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
             case R.id.importitem:
-                a = dbHandler.loadData();
-                TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
-                buckysText1.setText(String.valueOf(a));
+                dbHandler.loadData();
+                //TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
+                //buckysText1.setText(String.valueOf(a));
+                Toast.makeText(this,"Data load completed!",Toast.LENGTH_LONG).show();
                 return true;
             case R.id.exportitem:
                 /*
-                a = dbHandler.loadData();
-                TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
-                buckysText1.setText(String.valueOf(a));
+                String state = Environment.getExternalStorageState();
+                //When External Storage is available
+                if(state.equals(Environment.MEDIA_MOUNTED)) {
+                    File sdCard = Environment.getExternalStorageDirectory();
+                    File file = new File(sdCard,"export.txt");
+
+                    try {
+                        FileOutputStream outputStream = new FileOutputStream(file);//打开文件输出流
+                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));//写入到缓存流
+                        writer.write("data here");//从从缓存流写入
+                        writer.close();//关闭流
+                        Toast.makeText(this, "Sucess!", Toast.LENGTH_SHORT).show();
+                    }
+                    catch(Exception exception) {
+                        Toast.makeText(this, "failed!"+exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
                 */
                 return true;
         }
