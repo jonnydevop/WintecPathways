@@ -24,38 +24,29 @@
                 android:padding="4dp" />  -->
 
             <TextView
-                android:id="@+id/textViewID"
+                android:id="@+id/moduleName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
+                android:text="Module Name"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/moduleID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/textViewShortDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewTitle"
+                android:layout_below="@id/moduleName"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:text="13.3 Inch, 256 GB"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <ToggleButton
-                android:id="@+id/textViewButton"
+                android:id="@+id/moduleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewShortDesc"
+                android:layout_below="@id/moduleID"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/colorPrimary"

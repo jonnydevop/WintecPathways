@@ -44,8 +44,12 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         moduleList = dbHandler.retrievePathway(pathway);
         Log.i("StudentModuleViewAivity", "Modules list size:  " + String.valueOf(moduleList.size()));
 
-        for(int j=0;j<24;j++)
-            Log.i("StudentModuleViewAivity", "Modules Name:  " + moduleList.get(j).getMName());
+       /**  for(int j=0;j<24;j++)
+            Log.i("StudentModuleViewAivity",
+                    "pathway_1:"+moduleList.get(j).getPathway_1()
+                    + " " + "pathway_2:"+moduleList.get(j).getPathway_2()
+                    + " " + "pathway_3:"+moduleList.get(j).getPathway_3()
+                    + " " + "Modules Name:  " + moduleList.get(j).getMName()); */
 
         //TAB1
         TabHost.TabSpec spec = tabHost.newTabSpec("Year one ");
@@ -58,10 +62,22 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
         // First year modules
         for(int i=0;i<8;i++){
+
          moduleListYear1.add(new StudentProductsActivity(
-                 "1",
-                 moduleList.get(i).getMName(),
                  moduleList.get(i).getMID(),
+                 moduleList.get(i).getMName(),
+                 moduleList.get(i).getDescription(),
+                 moduleList.get(i).getLevel(),
+                 moduleList.get(i).getPreMID_1(),
+                 moduleList.get(i).getPreMID_2(),
+                 moduleList.get(i).getPreMID_3(),
+                 moduleList.get(i).getPathway_1(),
+                 moduleList.get(i).getPathway_2(),
+                 moduleList.get(i).getPathway_3(),
+                 moduleList.get(i).getClassification(),
+                 moduleList.get(i).getCredits(),
+                 moduleList.get(i).getYear(),
+                 moduleList.get(i).getSemester(),
                  "Completed"
                 // R.drawable.applecrumbleimage
          ));
@@ -73,6 +89,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         //TAB2
         spec = tabHost.newTabSpec("Year two ");
         spec.setContent(R.id.year2);
@@ -82,13 +99,25 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
         //adding some items to our list
        for(int i=8;i<16;i++){
-            moduleListYear2.add(new StudentProductsActivity(
-                    "1",
-                    moduleList.get(i).getMName(),
-                    moduleList.get(i).getMID(),
-                    "Completed"
-                    //R.drawable.applecrumbleimage
-            ));
+
+           moduleListYear2.add(new StudentProductsActivity(
+                   moduleList.get(i).getMID(),
+                   moduleList.get(i).getMName(),
+                   moduleList.get(i).getDescription(),
+                   moduleList.get(i).getLevel(),
+                   moduleList.get(i).getPreMID_1(),
+                   moduleList.get(i).getPreMID_2(),
+                   moduleList.get(i).getPreMID_3(),
+                   moduleList.get(i).getPathway_1(),
+                   moduleList.get(i).getPathway_2(),
+                   moduleList.get(i).getPathway_3(),
+                   moduleList.get(i).getClassification(),
+                   moduleList.get(i).getCredits(),
+                   moduleList.get(i).getYear(),
+                   moduleList.get(i).getSemester(),
+                   "Completed"
+                   // R.drawable.applecrumbleimage
+           ));
         }
 
 
@@ -108,13 +137,25 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
         //adding some items to our list
        for(int i=16;i<24;i++){
-            moduleListYear3.add(new StudentProductsActivity(
-                    "1",
-                    moduleList.get(i).getMName(),
-                    moduleList.get(i).getMID(),
-                    "Completed"
+
+           moduleListYear3.add(new StudentProductsActivity(
+                   moduleList.get(i).getMID(),
+                   moduleList.get(i).getMName(),
+                   moduleList.get(i).getDescription(),
+                   moduleList.get(i).getLevel(),
+                   moduleList.get(i).getPreMID_1(),
+                   moduleList.get(i).getPreMID_2(),
+                   moduleList.get(i).getPreMID_3(),
+                   moduleList.get(i).getPathway_1(),
+                   moduleList.get(i).getPathway_2(),
+                   moduleList.get(i).getPathway_3(),
+                   moduleList.get(i).getClassification(),
+                   moduleList.get(i).getCredits(),
+                   moduleList.get(i).getYear(),
+                   moduleList.get(i).getSemester(),
+                   "Completed"
                    // R.drawable.applecrumbleimage
-            ));
+           ));
         }
 
         //creating recyclerview adapter

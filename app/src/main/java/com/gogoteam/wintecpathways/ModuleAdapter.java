@@ -32,19 +32,18 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ProductVie
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         StudentProductsActivity product = productList.get(position);
+        //Log.i("ModuleAdapter", "Pathway_2()  " + product.getPathway_2().length() + "   " + "Pathway_3()  " + product.getPathway_3().length());
 
-        if(moduleName(product)) {
-            holder.textViewId.setText(product.getId());
-            holder.textViewTitle.setText(product.getTitle());
-            holder.textViewShortDesc.setText(product.getShortdesc());
-            holder.textViewButton.setText(String.valueOf(product.getButton()));
+        if(product != null && ( product.getPathway_1() !=null  && product.getPathway_1().length() ==0)) {
+            holder.moduleName.setText(product.getMName());
+            holder.moduleID.setText(product.getMID());
+            holder.moduleButton.setText(String.valueOf(product.getButton()));
             //holder.imageView.setImageAlpha(product.getImage());
         }else
         {
-            holder.textViewId.setText(product.getId());
-            holder.textViewTitle.setText(product.getTitle());
-            holder.textViewShortDesc.setText(product.getShortdesc());
-            holder.textViewButton.setText(String.valueOf(product.getButton()));
+            holder.moduleName.setText(product.getMName());
+            holder.moduleID.setText(product.getMID());
+            holder.moduleButton.setText(String.valueOf(product.getButton()));
             holder.stdPathwayModID.setBackgroundColor(Color.CYAN);
         }
     }
@@ -56,41 +55,17 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ProductVie
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewId, textViewTitle, textViewShortDesc, textViewButton;
-        ImageView imageView;
+        TextView moduleName, moduleID, moduleButton;
+        //ImageView imageView;
         RelativeLayout stdPathwayModID;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
-            textViewId = itemView.findViewById(R.id.textViewID);
-            textViewTitle = itemView.findViewById(R.id.textViewTitle);
-            textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
-            textViewButton = itemView.findViewById(R.id.textViewButton);
+            moduleName = itemView.findViewById(R.id.moduleName);
+            moduleID = itemView.findViewById(R.id.moduleID);
+            moduleButton = itemView.findViewById(R.id.moduleButton);
             //imageView = itemView.findViewById(R.id.imageView);
             stdPathwayModID = itemView.findViewById(R.id.stdPathwayModID);
         }
-    }
-
-    //Check moduleName to set the background color
-    private boolean moduleName(StudentProductsActivity productTest) {
-        if (productTest.getTitle() != null &&
-            (productTest.getTitle().equalsIgnoreCase("IT Operations")
-            || productTest.getTitle().equalsIgnoreCase("Fundamentals of Programming and Problem Solving")
-            || productTest.getTitle().equalsIgnoreCase("Professional Practice")
-            || productTest.getTitle().equalsIgnoreCase("Business Systems Analysis & Design")
-            || productTest.getTitle().equalsIgnoreCase("Introduction to Networks (Cisco 1)")
-            || productTest.getTitle().equalsIgnoreCase("Operating Systems & Systems Support")
-            || productTest.getTitle().equalsIgnoreCase("Database Principles")
-            || productTest.getTitle().equalsIgnoreCase("Technical Support")
-            || productTest.getTitle().equalsIgnoreCase("Object Oriented Programming")
-            || productTest.getTitle().equalsIgnoreCase("Web Development")
-            || productTest.getTitle().equalsIgnoreCase("Data-modelling and SQL")
-            || productTest.getTitle().equalsIgnoreCase("Mathematics for IT")
-            || productTest.getTitle().equalsIgnoreCase("Business, Interpersonal Communications & Technical Writing")
-            || productTest.getTitle().equalsIgnoreCase("Business Essentials for IT Professionals")))
-            return true;
-
-        return false;
-
     }
 }
