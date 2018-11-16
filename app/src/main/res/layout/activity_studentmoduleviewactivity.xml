@@ -27,7 +27,7 @@
                 android:layout_height="match_parent">
 
                 <!---Tab1-->
-                <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:id="@+id/year1"
                     android:layout_width="match_parent"
@@ -37,14 +37,15 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerView"
+                        android:scrollbars="vertical"
+                        android:scrollbarSize="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
-                </ScrollView>
+
 
                 <!---Tab2-->
-                <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <LinearLayout
                     android:id="@+id/year2"
                     android:layout_width="match_parent"
@@ -54,14 +55,16 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id = "@+id/recyclerView2"
+                        android:scrollbars="vertical"
+                        android:scrollbarSize="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
-                </ScrollView>
+
 
                 <!---Tab3-->
-                <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <!-- <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"> -->
                 <LinearLayout
                     android:id="@+id/year3"
                     android:layout_width="match_parent"
@@ -71,11 +74,13 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id = "@+id/recyclerView3"
+                        android:scrollbars="vertical"
+                        android:scrollbarSize="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
-            </ScrollView>
+                  <!-- </ScrollView> -->
 
             </FrameLayout>
         </LinearLayout>
