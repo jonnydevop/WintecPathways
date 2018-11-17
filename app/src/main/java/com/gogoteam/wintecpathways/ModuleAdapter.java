@@ -1,71 +1,86 @@
 package com.gogoteam.wintecpathways;
+import android.app.Activity;
+import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.List;
 
-public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ProductViewHolder> {
+public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleViewHolder> {
 
 
     private Context mCtx;
-    private List<StudentProductsActivity> productList;
+    private List<StudentProductsActivity> moduleList;
 
-    public ModuleAdapter(Context mCtx, List<StudentProductsActivity> productList) {
+
+
+
+    public ModuleAdapter(Context mCtx, List<StudentProductsActivity> moduleList) {
         this.mCtx = mCtx;
-        this.productList = productList;
+        this.moduleList = moduleList;
+
+
     }
 
     @Override
-    public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ModuleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.list_layout, null);
-        return new ProductViewHolder(view);
+        View view = inflater.inflate(R.layout.list_layout, parent, false);
+        return new ModuleViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, int position) {
-        StudentProductsActivity product = productList.get(position);
+    public void onBindViewHolder(ModuleViewHolder holder, int position) {
+
+        StudentProductsActivity module = moduleList.get(position);
         //Log.i("ModuleAdapter", "Pathway_2()  " + product.getPathway_2().length() + "   " + "Pathway_3()  " + product.getPathway_3().length());
 
-        if(product != null && ( product.getPathway_1() !=null  && product.getPathway_1().length() ==0)) {
-            holder.moduleName.setText(product.getMName());
-            holder.moduleID.setText(product.getMID());
-            holder.moduleButton.setText(String.valueOf(product.getButton()));
+        if(module != null && ( module.getPathway_1() !=null  && module.getPathway_1().length() ==0)) {
+            holder.moduleNameView.setText(module.getMName());
+            holder.moduleIDView.setText(module.getMID());
+            holder.moduleButton.setText(String.valueOf(module.getButton()));
+            holder.moduleSemesterView.setText(module.getSemester());
             //holder.imageView.setImageAlpha(product.getImage());
         }else
         {
-            holder.moduleName.setText(product.getMName());
-            holder.moduleID.setText(product.getMID());
-            holder.moduleButton.setText(String.valueOf(product.getButton()));
-            holder.stdPathwayModID.setBackgroundColor(Color.CYAN);
+            holder.moduleNameView.setText(module.getMName());
+            holder.moduleIDView.setText(module.getMID());
+            holder.moduleButton.setText(String.valueOf(module.getButton()));
+            holder.moduleSemesterView.setText(module.getSemester());
+            holder.moduleIDView.setBackgroundResource(R.color.colorAccent);
         }
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return moduleList.size();
     }
 
-    class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ModuleViewHolder extends RecyclerView.ViewHolder {
 
-        TextView moduleName, moduleID, moduleButton;
-        //ImageView imageView;
-        RelativeLayout stdPathwayModID;
+        TextView moduleNameView, moduleIDView, moduleSemesterView, moduleButton;
+        TextView textView;
+        //LinearLayout stdPathwayModID;
 
-        public ProductViewHolder(View itemView) {
+        public ModuleViewHolder(View itemView) {
             super(itemView);
-            moduleName = itemView.findViewById(R.id.moduleName);
-            moduleID = itemView.findViewById(R.id.moduleID);
+            moduleNameView = itemView.findViewById(R.id.moduleNameView);
+            moduleIDView = itemView.findViewById(R.id.moduleIDView);
             moduleButton = itemView.findViewById(R.id.moduleButton);
-            //imageView = itemView.findViewById(R.id.imageView);
-            stdPathwayModID = itemView.findViewById(R.id.stdPathwayModID);
+            moduleSemesterView = itemView.findViewById(R.id.moduleSemesterView);
+            //stdPathwayModID = itemView.findViewById(R.id.stdPathwayModID);
         }
     }
 }
