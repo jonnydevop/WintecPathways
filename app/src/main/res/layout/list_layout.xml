@@ -1,65 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
     <android.support.v7.widget.CardView
+        android:id="@+id/stdPathwayModID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_height="match_parent"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <RelativeLayout
-            android:id="@+id/stdPathwayModID"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:orientation="vertical"
+            android:padding="5dp">
 
-            <!-- <ImageButton
-                android:id="@+id/imageView"
-                android:layout_width="120dp"
+            <TextView
+                android:id="@+id/moduleIDView"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@color/colorblue"
+                android:gravity="center"
+                android:text="Module Code"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:padding="4dp" />  -->
+                android:layout_margin="5dp">
 
-            <TextView
-                android:id="@+id/moduleName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Module Name"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/moduleID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/moduleName"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:text="13.3 Inch, 256 GB"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                    <TextView
+                        android:id="@+id/moduleNameView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Module Name"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/moduleSemesterView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.066"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-            <ToggleButton
-                android:id="@+id/moduleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/moduleID"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorPrimary"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="4.7"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-                android:textOff="Not Completed"
-                android:textOn="Completed"
-                android:textStyle="bold" />
 
-        </RelativeLayout>
 
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="Semester"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/moduleButton"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/moduleSemesterView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.012"
+                        app:layout_constraintStart_toEndOf="@+id/textView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.13999999" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ToggleButton
+                    android:id="@+id/moduleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="3"
+
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/colorPrimary"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="4.7"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+                    android:textOff="Not Completed"
+                    android:textOn="Completed"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.529" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+
+
+    </LinearLayout>
+
