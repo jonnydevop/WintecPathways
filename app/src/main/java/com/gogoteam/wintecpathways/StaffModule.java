@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 
+import com.gogoteam.wintecpathways.adapter.RecyclerViewAdapter;
+import com.gogoteam.wintecpathways.database.DBHandler;
+import com.gogoteam.wintecpathways.database.Module;
 
 import java.util.LinkedList;
 import java.util.List;

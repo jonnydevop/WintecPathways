@@ -1,4 +1,4 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.gogoteam.wintecpathways.database.Module;
+import com.gogoteam.wintecpathways.ModuleModify;
+import com.gogoteam.wintecpathways.R;
 
 import java.util.List;
 

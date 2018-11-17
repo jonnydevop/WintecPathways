@@ -1,4 +1,6 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.database;
+import com.gogoteam.wintecpathways.StudentModule;
+
 import java.util.List;
 import java.util.LinkedList;
 

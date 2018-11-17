@@ -12,8 +12,10 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.gogoteam.wintecpathways.database.DBHandler;
+import com.gogoteam.wintecpathways.database.Module;
 
 import java.util.List;
 
@@ -50,6 +52,7 @@ public class ModuleModify extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.add_delete_menu, menu);
         return true;
     }
+
 
     public void showModuleInfo()
     {
@@ -109,7 +112,7 @@ public class ModuleModify extends AppCompatActivity {
     }
 
     // when click delete button
-    public void deleteBtn(View v)
+    public void deleteBtn()
     {
         // confirmation of deleting a module by senging module code
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -128,8 +131,9 @@ public class ModuleModify extends AppCompatActivity {
                     }
                 });
         AlertDialog disc = builder.create();
+        disc.setContentView(R.layout.delete_dialog);
         disc.show();
-        disc.getWindow().setBackgroundDrawableResource(R.color.orangecard);
+        //disc.getWindow().setBackgroundDrawableResource(R.color.orangecard);
 
         TextView messageText = (TextView)disc.findViewById( android.R.id.message );
         messageText.setGravity( Gravity.CENTER_HORIZONTAL );
@@ -149,6 +153,9 @@ public class ModuleModify extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                break;
+            case R.id.action_delete:
+                deleteBtn();
                 return true;
         }
         return false;    }

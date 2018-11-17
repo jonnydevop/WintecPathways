@@ -1,4 +1,4 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.database;
 
 public class Module {
     private	String MID;

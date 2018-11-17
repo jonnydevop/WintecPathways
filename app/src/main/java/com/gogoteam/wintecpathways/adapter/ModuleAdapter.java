@@ -1,4 +1,4 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.adapter;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.gogoteam.wintecpathways.ItemClickListener;
+import com.gogoteam.wintecpathways.R;
+import com.gogoteam.wintecpathways.StudentProductsActivity;
+
 import java.util.List;
 
 public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleViewHolder> {
@@ -83,23 +88,27 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
                 TextView moduleName = (TextView) dialog.findViewById(R.id.moduleNameID);
                 moduleName.setText(module.getMName());
 
-                TextView semesterID = (TextView) dialog.findViewById(R.id.semesterID);
-                semesterID.setText(module.getSemester());
+                TextView creditsID = (TextView) dialog.findViewById(R.id.creditsID);
+                creditsID.setText(module.getCredits());
 
                 TextView levelID = (TextView) dialog.findViewById(R.id.levelID);
-                semesterID.setText(module.getLevel());
+                levelID.setText("Level " + module.getLevel());
 
-                TextView creditsID = (TextView) dialog.findViewById(R.id.creditsID);
-                semesterID.setText(module.getCredits());
+                TextView preReqTxt = (TextView) dialog.findViewById(R.id.preReqTxt);
+                preReqTxt.setText(module.getPreMID_2());
 
-                TextView yearID = (TextView) dialog.findViewById(R.id.yearID);
-                semesterID.setText(module.getYear());
+                TextView coReqTxt = (TextView) dialog.findViewById(R.id.coReqTxt);
+                coReqTxt.setText(module.getPreMID_3());
 
-                TextView classificationID = (TextView) dialog.findViewById(R.id.classificationID);
-                semesterID.setText(module.getClassification());
+
+                TextView streamTxt = (TextView) dialog.findViewById(R.id.streamTxt);
+                streamTxt.setText(module.getPathway_2());
+
+               /* TextView classificationID = (TextView) dialog.findViewById(R.id.classificationID);
+                semesterID.setText(module.getClassification());*/
 
                 TextView descriptionId = (TextView) dialog.findViewById(R.id.descriptionId);
-                semesterID.setText(module.getDescription());
+                descriptionId.setText(module.getDescription());
 
                 dialog.show();
             }
