@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
 
+
+
     </style>
     <!-- Switch customize theme. -->
     <style name="SwitchTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -25,5 +27,17 @@
         <item name = "android:textSize">10sp</item>
         <item name="android:textColor">@android:color/holo_red_dark</item>
     </style>
+    <style name="MyTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+
+
+
 
 </resources>

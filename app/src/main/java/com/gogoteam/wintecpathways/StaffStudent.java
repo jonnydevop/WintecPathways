@@ -40,7 +40,7 @@ public class StaffStudent extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        addModule(v);
+                        addStudent(v);
                     }
                 }
         );
@@ -63,11 +63,11 @@ public class StaffStudent extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void addModule(View v)
+    private void addStudent(View v)
     {
         Log.i("Nancy", "addmodule  ");
         // go to add module activity
-        //startActivity(new Intent(StaffModule.this, AddModule.class));
+        startActivity(new Intent(StaffStudent.this, AddStudentActivity.class));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

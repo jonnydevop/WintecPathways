@@ -6,14 +6,16 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:layout_gravity="center"
-    android:background="@drawable/pop_bg">
+    android:background="@drawable/pop_bg"
+    android:theme="@style/MyTheme"
+    >
 
 
     <TextView
         android:id="@+id/closeDialog"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:textColor="@color/white"
+        android:textColor="@android:color/black"
         android:text="X"
         android:background="@drawable/circlebkg"
         android:layout_gravity="end"

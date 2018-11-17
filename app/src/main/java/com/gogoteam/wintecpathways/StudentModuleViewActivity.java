@@ -28,7 +28,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_studentmoduleviewactivity);
+        setContentView(R.layout.activity_pathway_view);
 
 
         //tabHost

@@ -52,6 +52,8 @@
         <activity
             android:name=".AddModule"
             android:parentActivityName=".StaffModule"/>
+        <activity android:name=".AddStudentActivity"
+            android:parentActivityName=".StaffStudent"/>
     </application>
 
 </manifest>

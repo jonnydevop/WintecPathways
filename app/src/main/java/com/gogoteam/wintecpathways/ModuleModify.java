@@ -59,11 +59,10 @@ public class ModuleModify extends AppCompatActivity {
         TextView nameTxt = findViewById(R.id.nameTxt);
         TextView levelTxt = findViewById(R.id.levelTxt);
         TextView creditTxt = findViewById(R.id.creditTxt);
-        TextView semesterTxt = findViewById(R.id.semesterTxt);
-        TextView yearTxt = findViewById(R.id.yearTxt);
-        TextView pathwayTxt = findViewById(R.id.pathwayTxt);
-        TextView preReqTxt = findViewById(R.id.preReqTxt);
-        TextView descriTxt = findViewById(R.id.descriTxt);
+        TextView prereqTxt = findViewById(R.id.preReqTxt);
+        TextView coreqTxt = findViewById(R.id.coReqTxt);
+        TextView streamTxt = findViewById(R.id.streamTxt);
+        TextView descripTxt = findViewById(R.id.descripTxt);
 
         // get the module code from module view ( module list)
         module.setMID(moduleID);
@@ -92,13 +91,11 @@ public class ModuleModify extends AppCompatActivity {
         moduleCode.setText(moduleList.get(0).getMID() + "  (" + moduleList.get(0).getClassification() + ")");
         nameTxt.setText(moduleList.get(0).getMName());
         levelTxt.setText("Level: " + moduleList.get(0).getLevel());
-        creditTxt.setText("Credit: " + moduleList.get(0).getCredits());
-        semesterTxt.setText("Semester: " + moduleList.get(0).getSemester());
-        yearTxt.setText("Year: " + moduleList.get(0).getYear());
-        pathwayTxt.setText("Pathway: " + pathway);
-        preReqTxt.setText("Pre-require: " + preModID);
-        descriTxt.setText("Description:" + moduleList.get(0).getDescription());
-        descriTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
+        creditTxt.setText(moduleList.get(0).getCredits());
+        //pathwayTxt.setText("Pathway: " + pathway);
+        prereqTxt.setText(preModID);
+        descripTxt.setText(moduleList.get(0).getDescription());
+        descripTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         // log for testing DB, these details should be shown on layout, GOGO Juan!!
         Log.i("chris", "showModuleInfo  " + moduleList.get(0).getMID() + " " +

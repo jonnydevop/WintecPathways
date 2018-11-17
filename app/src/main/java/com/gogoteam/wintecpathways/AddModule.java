@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -31,7 +32,7 @@ public class AddModule extends AppCompatActivity {
         setContentView(R.layout.activity_add_module);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Add Modules");
+        actionBar.hide();
 
         module = new Module();
         dbHandler = new DBHandler(this, null, null, 1);
@@ -122,6 +123,18 @@ public class AddModule extends AppCompatActivity {
         // go back to Module View (List)
         finish();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        DBHandler dbHandler = new DBHandler(this, null, null, 1);
+        switch(item.getItemId()){
+            case android.R.id.home:
+                finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                return true;
+        }
+        return false;
     }
 
 }
