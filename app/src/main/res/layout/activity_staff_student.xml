@@ -27,7 +27,8 @@
         android:layout_marginBottom="21dp"
         android:clickable="true"
         app:backgroundTint="@color/colorPrimaryDark"
-        app:srcCompat="@drawable/add1" />
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        app:fabSize="normal"/>
 
 
 </RelativeLayout>
