@@ -26,6 +26,8 @@ import java.io.OutputStreamWriter;
 public class StaffActivity extends AppCompatActivity {
 
     CardView studentCard;
+    CardView studentSearchView;
+    CardView moduleSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,21 @@ public class StaffActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
+        studentSearchView = (CardView)findViewById(R.id.studentSearchView);
+        studentSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StaffActivity.this, StaffStudent.class));
+            }
+        });
 
+        moduleSearchView = (CardView)findViewById(R.id.moduleSearchView);
+        moduleSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StaffActivity.this, StaffModule.class));
+            }
+        });
     }
 
     @Override
