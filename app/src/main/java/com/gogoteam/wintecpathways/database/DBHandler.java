@@ -1,22 +1,15 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
-import android.util.Log;
+
+import com.gogoteam.wintecpathways.StudentModule;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class DBHandler extends SQLiteOpenHelper {
     //Database and Tables

@@ -1,4 +1,4 @@
-package com.gogoteam.wintecpathways;
+package com.gogoteam.wintecpathways.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.gogoteam.wintecpathways.R;
+import com.gogoteam.wintecpathways.database.Student;
 
 import java.util.List;
 

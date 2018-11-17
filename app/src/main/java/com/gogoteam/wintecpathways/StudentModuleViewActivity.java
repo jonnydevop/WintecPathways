@@ -6,6 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TabHost;
+
+import com.gogoteam.wintecpathways.adapter.ModuleAdapter;
+import com.gogoteam.wintecpathways.database.DBHandler;
+import com.gogoteam.wintecpathways.database.Module;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -6,14 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+
+import com.gogoteam.wintecpathways.adapter.SearchAdapter;
+import com.gogoteam.wintecpathways.database.DBHandler;
+import com.gogoteam.wintecpathways.database.Module;
 
 import java.util.ArrayList;
 import java.util.List;

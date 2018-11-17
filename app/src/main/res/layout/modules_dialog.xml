@@ -7,7 +7,6 @@
     android:padding="5dp"
     android:layout_gravity="center"
     android:background="@drawable/pop_bg"
-    android:theme="@style/MyTheme"
     >
 
 
@@ -76,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semester"
+                    android:text="Module Level"
                     android:textSize="18dp"
                     android:textColor="@color/white"/>
             </LinearLayout>
@@ -89,7 +88,7 @@
                 android:background="@color/colorPrimary">
 
                 <TextView
-                    android:id="@+id/semesterID"
+                    android:id="@+id/levelID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -112,7 +111,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Level"
+                android:text="Credit Level"
                 android:textSize="18dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
@@ -125,7 +124,7 @@
             android:background="@color/colorPrimary">
 
             <TextView
-                android:id="@+id/levelID"
+                android:id="@+id/creditsID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -148,7 +147,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Credits"
+                android:text="Pre-requisite"
                 android:textSize="18dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
@@ -161,7 +160,7 @@
             android:background="@color/colorPrimary">
 
             <TextView
-                android:id="@+id/creditsID"
+                android:id="@+id/preReqTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -185,7 +184,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Year"
+                    android:text="Co-requisite"
                     android:textSize="18dp"
                     android:textColor="@color/white"/>
             </LinearLayout>
@@ -198,7 +197,7 @@
                 android:background="@color/colorPrimary">
 
                 <TextView
-                    android:id="@+id/yearID"
+                    android:id="@+id/coReqTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -224,7 +223,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Classification"
+                android:text="Associated Stream"
                 android:textSize="18dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
@@ -237,7 +236,7 @@
             android:background="@color/colorPrimary">
 
             <TextView
-                android:id="@+id/classificationID"
+                android:id="@+id/streamTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -283,6 +282,27 @@
             android:textColor="@android:color/background_dark"
             android:textSize="18dp"
             android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Refer to web link for the most up-to-date details of module pathways: https://www.wintec.ac.nz/study-at-wintec/courses/information-technology/bachelor-of-applied-information-technology"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10dp"
+            />
     </LinearLayout>
 
 
