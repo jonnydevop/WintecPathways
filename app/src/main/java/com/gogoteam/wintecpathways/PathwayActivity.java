@@ -6,10 +6,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.transition.Explode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PathwayActivity extends AppCompatActivity {
 
@@ -18,6 +25,12 @@ public class PathwayActivity extends AppCompatActivity {
     CardView dataBases;
     CardView multimedia;
     Bundle bundle = new Bundle();
+    private SearchAdapter adapter;
+    List<Module> suggestList = new ArrayList<>();
+    DBHandler database;
+    Module module;
+    SearchView searchView;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +39,9 @@ public class PathwayActivity extends AppCompatActivity {
 
         getWindow().setExitTransition(new Explode());
         ActionBar actionBar = getSupportActionBar();
+
+        database = new DBHandler(this, null, null, 1);
+        module = new Module();
 
         final Intent studentModActivityPage = new Intent(PathwayActivity.this, StudentModuleViewActivity.class);
 
@@ -72,9 +88,8 @@ public class PathwayActivity extends AppCompatActivity {
                 startActivity(studentModActivityPage);
             }
         });
-
-
     }
+    //Toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
@@ -92,10 +107,14 @@ public class PathwayActivity extends AppCompatActivity {
                 return true;
             }
         };
-
         MenuItem searchItem = menu.findItem(R.id.action_search);
         searchItem.setOnActionExpandListener(onActionExpandListener);
+
         return true;
+    }
+
+    private void viewData(){
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

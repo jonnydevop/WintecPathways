@@ -16,6 +16,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
     List<StudentProductsActivity> moduleListYear2;
     List<StudentProductsActivity> moduleListYear3;
 
+
     //access db
     Module module;
     DBHandler dbHandler;
@@ -28,6 +29,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentmoduleviewactivity);
+
 
         //tabHost
         TabHost tabHost = findViewById(R.id.tabHost);

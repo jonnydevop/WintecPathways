@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -42,6 +43,12 @@ public class ModuleModify extends AppCompatActivity {
         moduleID = moduleInfo.getString("moduleInfo");
 
         showModuleInfo();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_delete_menu, menu);
+        return true;
     }
 
     public void showModuleInfo()

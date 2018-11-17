@@ -1,12 +1,8 @@
 package com.gogoteam.wintecpathways;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,15 +10,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
 
-import java.util.ArrayList;
+
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class StaffModule extends AppCompatActivity {
 
-    SearchView searchView;
+
     DBHandler dbHandler;
     private List<Module> moduleList = new LinkedList<>();;
 

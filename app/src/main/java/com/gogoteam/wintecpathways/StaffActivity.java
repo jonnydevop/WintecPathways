@@ -52,7 +52,7 @@ public class StaffActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Toolbar menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.staff_menu, menu);

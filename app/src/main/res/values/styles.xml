@@ -7,8 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+
+    </style>
+    <!-- Switch customize theme. -->
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorControlActivated">#3ad7a5</item>
     </style>
 
+    <!-- Animation customize. -->
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
