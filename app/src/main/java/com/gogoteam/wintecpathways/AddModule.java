@@ -119,8 +119,9 @@ public class AddModule extends AppCompatActivity {
     // when cancel button is clicked
     public void cancelClick(View v)
     {
+        finish();
         // go back to Module View (List)
-        startActivity(new Intent(AddModule.this, StaffModule.class));
+
     }
 
 }
