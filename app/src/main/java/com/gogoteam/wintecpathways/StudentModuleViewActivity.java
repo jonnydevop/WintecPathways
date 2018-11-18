@@ -51,12 +51,10 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         moduleList = dbHandler.retrievePathway(pathway);
         Log.i("StudentModuleViewAivity", "Modules list size:  " + String.valueOf(moduleList.size()));
 
-       /**  for(int j=0;j<24;j++)
+        /** for(int j=0;j < moduleList.size();j++)
             Log.i("StudentModuleViewAivity",
-                    "pathway_1:"+moduleList.get(j).getPathway_1()
-                    + " " + "pathway_2:"+moduleList.get(j).getPathway_2()
-                    + " " + "pathway_3:"+moduleList.get(j).getPathway_3()
-                    + " " + "Modules Name:  " + moduleList.get(j).getMName()); */
+                    "Year:"+moduleList.get(j).getYear()
+                    + "    " + "Modules Name:  " + moduleList.get(j).getMName()); */
 
         //TAB1
         TabHost.TabSpec spec = tabHost.newTabSpec("Year one ");
@@ -67,111 +65,118 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         //initializing the productlist
         moduleListYear1 = new ArrayList<>();
 
-        // First year modules
-        for(int i=0;i<8;i++){
+        if(moduleList!= null && moduleList.size() > 0) {
+           // First year modules
+           for (int i = 0; i < 8; i++) {
 
-         moduleListYear1.add(new StudentProductsActivity(
-                 moduleList.get(i).getMID(),
-                 moduleList.get(i).getMName(),
-                 moduleList.get(i).getDescription(),
-                 moduleList.get(i).getLevel(),
-                 moduleList.get(i).getPreMID_1(),
-                 moduleList.get(i).getPreMID_2(),
-                 moduleList.get(i).getPreMID_3(),
-                 moduleList.get(i).getPathway_1(),
-                 moduleList.get(i).getPathway_2(),
-                 moduleList.get(i).getPathway_3(),
-                 moduleList.get(i).getClassification(),
-                 moduleList.get(i).getCredits(),
-                 moduleList.get(i).getYear(),
-                 moduleList.get(i).getSemester(),
-                 "Completed"
-                // R.drawable.applecrumbleimage
-         ));
-         }
-        //getting the recyclerview from xml
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        ModuleAdapter adapter = new ModuleAdapter(this, moduleListYear1);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+               moduleListYear1.add(new StudentProductsActivity(
+                       moduleList.get(i).getMID(),
+                       moduleList.get(i).getMName(),
+                       moduleList.get(i).getDescription(),
+                       moduleList.get(i).getLevel(),
+                       moduleList.get(i).getPreMID_1(),
+                       moduleList.get(i).getPreMID_2(),
+                       moduleList.get(i).getPreMID_3(),
+                       moduleList.get(i).getPathway_1(),
+                       moduleList.get(i).getPathway_2(),
+                       moduleList.get(i).getPathway_3(),
+                       moduleList.get(i).getClassification(),
+                       moduleList.get(i).getCredits(),
+                       moduleList.get(i).getYear(),
+                       moduleList.get(i).getSemester(),
+                       "Completed"
+                       // R.drawable.applecrumbleimage
+               ));
+           }
+           //getting the recyclerview from xml
+           RecyclerView recyclerView = findViewById(R.id.recyclerView);
+           recyclerView.setHasFixedSize(true);
+           ModuleAdapter adapter = new ModuleAdapter(this, moduleListYear1);
+           recyclerView.setAdapter(adapter);
+           recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       }
 
 
-        //TAB2
-        spec = tabHost.newTabSpec("Year two ");
-        spec.setContent(R.id.year2);
-        spec.setIndicator("Year two");
-        tabHost.addTab(spec);
-        moduleListYear2 = new ArrayList<>();
+           //TAB2
+           spec = tabHost.newTabSpec("Year two ");
+           spec.setContent(R.id.year2);
+           spec.setIndicator("Year two");
+           tabHost.addTab(spec);
+           moduleListYear2 = new ArrayList<>();
 
-        //adding some items to our list
-       for(int i=8;i<16;i++){
+           if(moduleList!= null && moduleList.size() > 0) {
+            //adding some items to our list
+            for (int i = 8; i < 16; i++) {
 
-           moduleListYear2.add(new StudentProductsActivity(
-                   moduleList.get(i).getMID(),
-                   moduleList.get(i).getMName(),
-                   moduleList.get(i).getDescription(),
-                   moduleList.get(i).getLevel(),
-                   moduleList.get(i).getPreMID_1(),
-                   moduleList.get(i).getPreMID_2(),
-                   moduleList.get(i).getPreMID_3(),
-                   moduleList.get(i).getPathway_1(),
-                   moduleList.get(i).getPathway_2(),
-                   moduleList.get(i).getPathway_3(),
-                   moduleList.get(i).getClassification(),
-                   moduleList.get(i).getCredits(),
-                   moduleList.get(i).getYear(),
-                   moduleList.get(i).getSemester(),
-                   "Completed"
-                   // R.drawable.applecrumbleimage
-           ));
+                moduleListYear2.add(new StudentProductsActivity(
+                        moduleList.get(i).getMID(),
+                        moduleList.get(i).getMName(),
+                        moduleList.get(i).getDescription(),
+                        moduleList.get(i).getLevel(),
+                        moduleList.get(i).getPreMID_1(),
+                        moduleList.get(i).getPreMID_2(),
+                        moduleList.get(i).getPreMID_3(),
+                        moduleList.get(i).getPathway_1(),
+                        moduleList.get(i).getPathway_2(),
+                        moduleList.get(i).getPathway_3(),
+                        moduleList.get(i).getClassification(),
+                        moduleList.get(i).getCredits(),
+                        moduleList.get(i).getYear(),
+                        moduleList.get(i).getSemester(),
+                        "Completed"
+                        // R.drawable.applecrumbleimage
+                ));
+            }
         }
 
 
-        //getting the recyclerview from xml
-        RecyclerView recyclerView2 = findViewById(R.id.recyclerView2);
-        recyclerView2.setHasFixedSize(true);
-        ModuleAdapter adapter2 = new ModuleAdapter(this, moduleListYear2);
-        recyclerView2.setAdapter(adapter2);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this));
+           //getting the recyclerview from xml
+           RecyclerView recyclerView2 = findViewById(R.id.recyclerView2);
+           recyclerView2.setHasFixedSize(true);
+           ModuleAdapter adapter2 = new ModuleAdapter(this, moduleListYear2);
+           recyclerView2.setAdapter(adapter2);
+           recyclerView2.setLayoutManager(new LinearLayoutManager(this));
 
-        //TAB 3
-        spec = tabHost.newTabSpec("Year three ");
-        spec.setContent(R.id.year3);
-        spec.setIndicator("Year three");
-        tabHost.addTab(spec);
-        moduleListYear3 = new ArrayList<>();
+           //TAB 3
+           spec = tabHost.newTabSpec("Year three ");
+           spec.setContent(R.id.year3);
+           spec.setIndicator("Year three");
+           tabHost.addTab(spec);
+           moduleListYear3 = new ArrayList<>();
 
-        //adding some items to our list
-       for(int i=16;i<24;i++){
+           if(moduleList!= null && moduleList.size() > 0) {
+            //adding some items to our list
+            for (int i = 16; i < 24; i++) {
 
-           moduleListYear3.add(new StudentProductsActivity(
-                   moduleList.get(i).getMID(),
-                   moduleList.get(i).getMName(),
-                   moduleList.get(i).getDescription(),
-                   moduleList.get(i).getLevel(),
-                   moduleList.get(i).getPreMID_1(),
-                   moduleList.get(i).getPreMID_2(),
-                   moduleList.get(i).getPreMID_3(),
-                   moduleList.get(i).getPathway_1(),
-                   moduleList.get(i).getPathway_2(),
-                   moduleList.get(i).getPathway_3(),
-                   moduleList.get(i).getClassification(),
-                   moduleList.get(i).getCredits(),
-                   moduleList.get(i).getYear(),
-                   moduleList.get(i).getSemester(),
-                   "Completed"
-                   // R.drawable.applecrumbleimage
-           ));
-        }
+                moduleListYear3.add(new StudentProductsActivity(
+                        moduleList.get(i).getMID(),
+                        moduleList.get(i).getMName(),
+                        moduleList.get(i).getDescription(),
+                        moduleList.get(i).getLevel(),
+                        moduleList.get(i).getPreMID_1(),
+                        moduleList.get(i).getPreMID_2(),
+                        moduleList.get(i).getPreMID_3(),
+                        moduleList.get(i).getPathway_1(),
+                        moduleList.get(i).getPathway_2(),
+                        moduleList.get(i).getPathway_3(),
+                        moduleList.get(i).getClassification(),
+                        moduleList.get(i).getCredits(),
+                        moduleList.get(i).getYear(),
+                        moduleList.get(i).getSemester(),
+                        "Completed"
+                        // R.drawable.applecrumbleimage
+                ));
+              }
+           }
 
-        //creating recyclerview adapter
-        //getting the recyclerview from xml
-        RecyclerView recyclerView3 = findViewById(R.id.recyclerView3);
-        recyclerView3.setHasFixedSize(true);
-        ModuleAdapter adapter3 = new ModuleAdapter(this, moduleListYear3);
-        recyclerView3.setAdapter(adapter3);
-        recyclerView3.setLayoutManager(new LinearLayoutManager(this));
+           //creating recyclerview adapter
+           //getting the recyclerview from xml
+           RecyclerView recyclerView3 = findViewById(R.id.recyclerView3);
+           recyclerView3.setHasFixedSize(true);
+           ModuleAdapter adapter3 = new ModuleAdapter(this, moduleListYear3);
+           recyclerView3.setAdapter(adapter3);
+           recyclerView3.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
 
