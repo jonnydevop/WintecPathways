@@ -230,7 +230,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
-    <android.support.v7.widget.AppCompatSpinner
+    <Spinner
+        android:id="@+id/pathwayID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -241,9 +242,9 @@
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.53">
 
-    </android.support.v7.widget.AppCompatSpinner>
+    </Spinner>
 
-    <Button
+    <!-- <Button
         android:id="@+id/button"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -254,7 +255,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.52" /> -->
 
 
     <android.support.constraint.Guideline

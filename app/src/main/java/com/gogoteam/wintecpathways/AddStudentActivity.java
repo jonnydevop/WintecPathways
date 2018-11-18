@@ -11,10 +11,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import java.util.Calendar;
 
@@ -24,8 +26,9 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText nameText, studentidText, emailText, phoneText, dateText;
     private String name, studentid, email, date;
     private Button cancelBtn, saveBtn;
+    private Spinner pathway;
     //private DatePickerDialog.OnDateSetListener mDateSetListener;
-
+    private String [] pathways = {" SELECT A PATHWAY ","Network Engineering", "Software Engineering", "Database Architecture", "Multimedia and Web Development"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,10 @@ public class AddStudentActivity extends AppCompatActivity {
         dateText = (EditText)findViewById(R.id.dateText);
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
         saveBtn = (Button)findViewById(R.id.saveBtn);
+
+        //prepopulate pathways
+        pathway = findViewById(R.id.pathwayID);
+        pathway.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pathways));
 
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
