@@ -12,6 +12,8 @@ public class Student {
     private String Date_Enrolled;
     private List<StudentModule> studentModules;
 
+    private int image;
+
     public Student() {
         studentModules = new LinkedList<>();
     }
@@ -71,4 +73,7 @@ public class Student {
     public void setModules(List<StudentModule> modules) {
         this.studentModules = modules;
     }
+
+    public void setImage(int image){image = image;}
+    public int getImage(){return image;}
 }

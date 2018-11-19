@@ -15,6 +15,7 @@ import com.gogoteam.wintecpathways.database.Module;
 import com.gogoteam.wintecpathways.ModuleModify;
 import com.gogoteam.wintecpathways.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
@@ -41,6 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder viewHolder,final int i) {
         // i is the number of the list that the recyclerView need to show
         viewHolder.moduleCode.setText(moduleList.get(i).getMID());
+        viewHolder.moduleDesc.setText(moduleList.get(i).getMName());
 
         viewHolder.parentView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,12 +67,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView moduleCode;
+        TextView moduleDesc;
+
         RelativeLayout parentView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             moduleCode = itemView.findViewById(R.id.moduleText);
+            moduleDesc = itemView.findViewById(R.id.moduleDesc);
             parentView = itemView.findViewById(R.id.parentView);
         }
     }
+
+    public void updateList(List<Module> newList)
+    {
+        moduleList = new ArrayList<>();
+        moduleList.addAll(newList);
+        notifyDataSetChanged();
+    }
+
 }

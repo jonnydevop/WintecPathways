@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.gogoteam.wintecpathways.adapter.SearchAdapter;
+//import com.gogoteam.wintecpathways.adapter.SearchAdapter;
 import com.gogoteam.wintecpathways.database.DBHandler;
 import com.gogoteam.wintecpathways.database.Module;
 
@@ -26,7 +26,7 @@ public class PathwayActivity extends AppCompatActivity {
     CardView dataBases;
     CardView multimedia;
     Bundle bundle = new Bundle();
-    private SearchAdapter adapter;
+   // private SearchAdapter adapter;
     List<Module> suggestList = new ArrayList<>();
     DBHandler database;
     Module module;
@@ -91,28 +91,28 @@ public class PathwayActivity extends AppCompatActivity {
         });
     }
     //Toolbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-
-        MenuItem.OnActionExpandListener onActionExpandListener = new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem menuItem) {
-                setContentView(R.layout.search_activity);
-                return true;
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
-                setContentView(R.layout.activity_pathway);
-                return true;
-            }
-        };
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        searchItem.setOnActionExpandListener(onActionExpandListener);
-
-        return true;
-    }
+ //   @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+//
+//        MenuItem.OnActionExpandListener onActionExpandListener = new MenuItem.OnActionExpandListener() {
+//            @Override
+//            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+//                setContentView(R.layout.search_activity);
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+//                setContentView(R.layout.activity_pathway);
+//                return true;
+//            }
+//        };
+//        MenuItem searchItem = menu.findItem(R.id.action_search);
+//        searchItem.setOnActionExpandListener(onActionExpandListener);
+//
+//        return true;
+//    }
 
     private void viewData(){
 
