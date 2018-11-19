@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.Image;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_Specialisation = "Specialisation";
     private static final String COLUMN_Programme = "Programme";
     private static final String COLUMN_Date_Enrolled = "Date_Enrolled";
+    private static final String COLUMN_SImage = "SImage";
 
     //StudentModule table column
     private static final String COLUMN_SMID = "SMID";
@@ -59,7 +61,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_Email + " TEXT,"
                 + COLUMN_Specialisation + " TEXT, "
                 + COLUMN_Programme + " TEXT, "
-                + COLUMN_Date_Enrolled + " TEXT" + ");";
+                + COLUMN_Date_Enrolled + " TEXT,"
+                + COLUMN_SImage + " BLOB" + ");";
         db.execSQL(query);
 
         query = "CREATE TABLE " + TABLE_MODULE + "("

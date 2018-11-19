@@ -1,5 +1,7 @@
 package com.gogoteam.wintecpathways.database;
 
+import android.media.Image;
+
 import java.util.List;
 import java.util.LinkedList;
 
@@ -11,8 +13,9 @@ public class Student {
     private	String Programme;
     private String Date_Enrolled;
     private List<StudentModule> studentModules;
+    private Image SImage;
 
-    private int image;
+    //private int image;
 
     public Student() {
         studentModules = new LinkedList<>();
@@ -74,6 +77,11 @@ public class Student {
         this.studentModules = modules;
     }
 
-    public void setImage(int image){image = image;}
-    public int getImage(){return image;}
+    public void setSImage(Image SImage) {
+        this.SImage = SImage;
+    }
+
+    public Image getSImage() {
+        return SImage;
+    }
 }
