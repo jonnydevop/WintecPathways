@@ -42,7 +42,9 @@ public class ModuleModify extends AppCompatActivity {
         if (moduleInfo == null){
             return;
         }
+
         moduleID = moduleInfo.getString("moduleInfo");
+        Log.i("chris", "ModuleModify onCreate  " + moduleID);
 
         showModuleInfo();
     }
@@ -56,7 +58,7 @@ public class ModuleModify extends AppCompatActivity {
 
     public void showModuleInfo()
     {
-        String pathway = "None";
+        String pathway = "Core";
         String preModID = "None";
         TextView moduleCode = findViewById(R.id.moduleCodeTxt);
         TextView nameTxt = findViewById(R.id.nameTxt);
@@ -91,23 +93,31 @@ public class ModuleModify extends AppCompatActivity {
         }
 
 
-        moduleCode.setText(moduleList.get(0).getMID() + "  (" + moduleList.get(0).getClassification() + ")");
+        moduleCode.setText(moduleList.get(0).getMID());
         nameTxt.setText(moduleList.get(0).getMName());
-        levelTxt.setText("Level: " + moduleList.get(0).getLevel());
+        levelTxt.setText(moduleList.get(0).getLevel());
         creditTxt.setText(moduleList.get(0).getCredits());
-        //pathwayTxt.setText("Pathway: " + pathway);
+        streamTxt.setText(pathway);
         prereqTxt.setText(preModID);
+        coreqTxt.setText("None");
         descripTxt.setText(moduleList.get(0).getDescription());
         descripTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
 
+
         // log for testing DB, these details should be shown on layout, GOGO Juan!!
         Log.i("chris", "showModuleInfo  " + moduleList.get(0).getMID() + " " +
+                moduleList.get(0).getMName() + " " +
                 moduleList.get(0).getClassification() + " " +
                 moduleList.get(0).getSemester() + " " +
-                moduleList.get(0).getMName() + " " +
+                moduleList.get(0).getLevel() + " " +
                 moduleList.get(0).getPathway_1()+ " " +
+                moduleList.get(0).getPathway_2()+ " " +
+                moduleList.get(0).getPathway_3()+ " " +
                 moduleList.get(0).getPreMID_1() + " " +
+                moduleList.get(0).getPreMID_2() + " " +
+                moduleList.get(0).getPreMID_3() + " " +
                 moduleList.get(0).getYear() + " " +
+                moduleList.get(0).getCredits() + " " +
                 moduleList.get(0).getDescription());
     }
 
@@ -139,7 +149,7 @@ public class ModuleModify extends AppCompatActivity {
         messageText.setGravity( Gravity.CENTER_HORIZONTAL );
     }
 
-    public void editBtn(View v)
+    public void editBtn()
     {
         Intent intent = new Intent (ModuleModify.this, AddModule.class);
         intent.putExtra("moduleInfo", moduleID);
@@ -156,7 +166,11 @@ public class ModuleModify extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteBtn();
+                break;
+            case R.id.action_edit:
+                editBtn();
                 return true;
+
         }
         return false;    }
 
