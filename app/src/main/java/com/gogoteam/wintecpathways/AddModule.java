@@ -2,6 +2,7 @@ package com.gogoteam.wintecpathways;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,10 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gogoteam.wintecpathways.database.DBHandler;
 import com.gogoteam.wintecpathways.database.Module;
@@ -27,14 +31,32 @@ public class AddModule extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_module);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        Button saveBtn = findViewById(R.id.saveBtn);
+        Button cancelBtn = findViewById(R.id.cancelBtn);
+
         module = new Module();
         dbHandler = new DBHandler(this, null, null, 1);
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveModule(v);
+            }
+        });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelModule(v);
+            }
+        });
 
         // check if it's modify module
         moduleInfo = getIntent().getExtras();
@@ -67,7 +89,7 @@ public class AddModule extends AppCompatActivity {
     }
 
     // when save button is clicked
-    public void saveBtn(View v)
+    public void saveModule(View v)
     {
         // confirmation for saving the module details
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -76,7 +98,7 @@ public class AddModule extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       addEditModule();
+                        addEditModule();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -96,6 +118,66 @@ public class AddModule extends AppCompatActivity {
 
     public void addEditModule(){
         boolean saveSuccess = true;
+        String[] pathway = {"","",""};
+
+        TextInputEditText moduleCode = findViewById(R.id.moduleCodeTxt);
+        TextInputEditText nameTxt = findViewById(R.id.nameTxt);
+        TextInputEditText levelTxt = findViewById(R.id.levelTxt);
+        TextInputEditText creditTxt = findViewById(R.id.creditTxt);
+        TextInputEditText semesterTxt = findViewById(R.id.semesterTxt);
+        TextInputEditText yearTxt = findViewById(R.id.yearTxt);
+        TextInputEditText preReqTxt1 = findViewById(R.id.preReqTxt1);
+        TextInputEditText preReqTxt2 = findViewById(R.id.preReqTxt2);
+        TextInputEditText descriTxt = findViewById(R.id.descriTxt);
+        CheckBox cheBox1 =  findViewById(R.id.checkBox1);
+        CheckBox cheBox2 =  findViewById(R.id.checkBox2);
+        CheckBox cheBox3 =  findViewById(R.id.checkBox3);
+        CheckBox cheBox4 =  findViewById(R.id.checkBox4);
+        CheckBox cheBox5 =  findViewById(R.id.checkBox5);
+
+        module.setPathway_1("");
+        module.setPathway_2("");
+        module.setPathway_3("");
+
+
+        if(cheBox1.isChecked()) {
+            module.setClassification("Mandatory");
+        }
+        else
+        {
+            int index =0;
+            module.setClassification("Optional");
+
+            if(cheBox2.isChecked()) {
+                pathway[index] = "Software Engineer";
+                index++;
+            }
+            if(cheBox3.isChecked()) {
+                pathway[index] = "Database Archtecture";
+                index++;
+            }
+            if(cheBox4.isChecked()) {
+                pathway[index] = "Network Engineer";
+                index++;
+            }
+            if(cheBox5.isChecked()) {
+                pathway[index] = "Multimedia and Web Development";
+            }
+            module.setPathway_1(pathway[0]);
+            module.setPathway_2(pathway[1]);
+            module.setPathway_3(pathway[2]);
+        }
+
+        module.setMID(moduleCode.getText().toString());
+        module.setMName(nameTxt.getText().toString());
+        module.setLevel(levelTxt.getText().toString());
+        module.setCredits(creditTxt.getText().toString());
+        module.setMName(semesterTxt.getText().toString());
+        module.setYear(yearTxt.getText().toString());
+        module.setPreMID_1(preReqTxt1.getText().toString());
+        module.setPreMID_2(preReqTxt2.getText().toString());
+        module.setDescription(descriTxt.getText().toString());
+
 
         saveSuccess = dbHandler.addModule(module);
 
@@ -114,10 +196,14 @@ public class AddModule extends AppCompatActivity {
             AlertDialog disc = builder.create();
             disc.show();
         }
+        else {
+            Toast.makeText(this, "Module saved!", Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 
     // when cancel button is clicked
-    public void cancelClick(View v)
+    public void cancelModule(View v)
     {
         // go back to Module View (List)
         finish();

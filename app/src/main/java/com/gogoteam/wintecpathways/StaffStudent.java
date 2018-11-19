@@ -8,20 +8,24 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 
 import com.gogoteam.wintecpathways.adapter.StudentRecyclerViewAdapter;
 import com.gogoteam.wintecpathways.database.DBHandler;
+import com.gogoteam.wintecpathways.database.Module;
 import com.gogoteam.wintecpathways.database.Student;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class StaffStudent extends AppCompatActivity {
-    SearchView searchView;
+public class StaffStudent extends AppCompatActivity implements SearchView.OnQueryTextListener {
+
     DBHandler dbHandler;
+    StudentRecyclerViewAdapter adapter;
     private List<Student> studentList = new LinkedList<>();;
 
     @Override
@@ -56,8 +60,7 @@ public class StaffStudent extends AppCompatActivity {
     private void initRecyclerView(){
         Log.i("Nancy", "initRecyclerView  ");
         RecyclerView recyclerView = findViewById(R.id.studentView);
-        StudentRecyclerViewAdapter adapter = new StudentRecyclerViewAdapter(this, studentList);
-
+        adapter = new StudentRecyclerViewAdapter(this, studentList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -80,4 +83,37 @@ public class StaffStudent extends AppCompatActivity {
         return false;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        //getting the search bar
+        getMenuInflater().inflate(R.menu.search,menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        String userInput = newText.toLowerCase();
+        List<Student> newList = new ArrayList<>();
+
+        for(Student student: studentList )
+        {
+            if(student.getSName().toLowerCase().contains(userInput) || student.getSID().toLowerCase().contains(userInput))
+            {
+                newList.add(student);
+            }
+        }
+        adapter.updateList(newList);
+        return true;
+    }
 }
