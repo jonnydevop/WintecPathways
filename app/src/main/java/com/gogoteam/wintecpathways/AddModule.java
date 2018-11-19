@@ -26,7 +26,7 @@ public class AddModule extends AppCompatActivity {
     DBHandler dbHandler;
     Module module;
     Bundle moduleInfo;
-    String moduleID;
+    String moduleID = null;
     private List<Module> moduleList;
     TextInputEditText moduleCode;
     TextInputEditText nameTxt;
@@ -63,6 +63,7 @@ public class AddModule extends AppCompatActivity {
         yearTxt = findViewById(R.id.yearTxt);
         preReqTxt1 = findViewById(R.id.preReqTxt1);
         preReqTxt2 = findViewById(R.id.preReqTxt2);
+        //preReqTxt3 = findViewById(R.id.preReqTxt3);
         coReqTxt = findViewById(R.id.coReqTxt);
         descriTxt = findViewById(R.id.descriTxt);
         manCheBox =  findViewById(R.id.manCheBox);
@@ -103,9 +104,13 @@ public class AddModule extends AppCompatActivity {
     {
         // get the module code from module view ( module list)
         String[] pathway = {"Network Engineering", "Software Engineering", "Database Architecture", "Multimedia and Web Development"};
+        String[] preReq = {"None","None","None"};
+        int index = 0;
         module.setMID(moduleID);
 
         Log.i("chris", "showModuleInfo  " + moduleID);
+
+
         // get module deatils from DB by sending module code
         moduleList = dbHandler.searchModule(module);
 
@@ -115,10 +120,28 @@ public class AddModule extends AppCompatActivity {
         creditTxt.setText(moduleList.get(0).getCredits());
         semesterTxt.setText(moduleList.get(0).getSemester());
         yearTxt.setText(moduleList.get(0).getYear());
-        preReqTxt1.setText(moduleList.get(0).getPreMID_1());
         preReqTxt2.setText(moduleList.get(0).getPreMID_2());
         descriTxt.setText(moduleList.get(0).getDescription());
         coReqTxt.setText("None");
+
+        if(!moduleList.get(0).getPreMID_1().equals(""))
+        {
+            preReq[index] = moduleList.get(0).getPreMID_1();
+            index ++;
+        }
+        if(!moduleList.get(0).getPreMID_2().equals(""))
+        {
+            preReq[index] = moduleList.get(0).getPreMID_2();
+            index ++;
+        }
+        if(!moduleList.get(0).getPreMID_3().equals(""))
+        {
+            preReq[index] = moduleList.get(0).getPreMID_3();
+        }
+
+        preReqTxt1.setText(preReq[0]);
+        preReqTxt2.setText(preReq[1]);
+        preReqTxt2.setText(preReq[2]);
 
         if(moduleList.get(0).getClassification().equals("Mandatory"))
             manCheBox.setChecked(true);
@@ -197,6 +220,9 @@ public class AddModule extends AppCompatActivity {
 
         if(manCheBox.isChecked()) {
             module.setClassification("Mandatory");
+            module.setPathway_1("");
+            module.setPathway_2("");
+            module.setPathway_3("");
         }
         else
         {
@@ -229,32 +255,43 @@ public class AddModule extends AppCompatActivity {
         module.setCredits(creditTxt.getText().toString());
         module.setSemester(semesterTxt.getText().toString());
         module.setYear(yearTxt.getText().toString());
-        module.setPreMID_1(preReqTxt1.getText().toString());
-        module.setPreMID_2(preReqTxt2.getText().toString());
+        if(!preReqTxt1.getText().toString().equals("None"))
+            module.setPreMID_1(preReqTxt1.getText().toString());
+        if(!preReqTxt2.getText().toString().equals("None"))
+            module.setPreMID_2(preReqTxt2.getText().toString());
+        //if(!preReqTxt3.getText().toString().equals("None"))
+            //module.setPreMID_2(preReqTxt3.getText().toString());
         module.setDescription(descriTxt.getText().toString());
+        Log.i("chris", "addEditModule  get preMid  " + preReqTxt1.getText().toString());
 
 
-        saveSuccess = dbHandler.addModule(module);
-
-        if(saveSuccess == false)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("The module is already exist, please use edit function instead of add function.")
-                    .setCancelable(false)
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                            startActivity(new Intent(AddModule.this, StaffModule.class));
-                        }
-                    });
-            AlertDialog disc = builder.create();
-            disc.show();
+        if(moduleID == null) {
+            saveSuccess = dbHandler.addModule(module);
+            if(saveSuccess == false)
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("The module is already exist, please use edit function instead of add function.")
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                startActivity(new Intent(AddModule.this, StaffModule.class));
+                            }
+                        });
+                AlertDialog disc = builder.create();
+                disc.show();
+            }
+            else {
+                Toast.makeText(this, "Module saved!", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
-        else {
-            Toast.makeText(this, "Module saved!", Toast.LENGTH_LONG).show();
-            finish();
-        }
+        else
+            dbHandler.updateModule(module);
+        finish();
+
+
     }
 
     // when cancel button is clicked

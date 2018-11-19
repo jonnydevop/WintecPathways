@@ -50,11 +50,19 @@ public class ModuleModify extends AppCompatActivity {
     }
 
     @Override
+    public void onResume()
+    {
+        super.onResume();
+        if (moduleInfo != null){
+            showModuleInfo();
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.add_delete_menu, menu);
         return true;
     }
-
 
     public void showModuleInfo()
     {
@@ -72,7 +80,7 @@ public class ModuleModify extends AppCompatActivity {
         // get the module code from module view ( module list)
         module.setMID(moduleID);
 
-        Log.i("chris", "showModuleInfo  " + moduleID);
+        Log.i("chris", "ModuleModify showModuleInfo  " + moduleID);
         // get module deatils from DB by sending module code
         moduleList = dbHandler.searchModule(module);
         if(!moduleList.get(0).getPathway_1().equals(""))
@@ -105,7 +113,7 @@ public class ModuleModify extends AppCompatActivity {
 
 
         // log for testing DB, these details should be shown on layout, GOGO Juan!!
-        Log.i("chris", "showModuleInfo  " + moduleList.get(0).getMID() + " " +
+        Log.i("chris", "ModuleModify showModuleInfo  " + moduleList.get(0).getMID() + " " +
                 moduleList.get(0).getMName() + " " +
                 moduleList.get(0).getClassification() + " " +
                 moduleList.get(0).getSemester() + " " +
@@ -132,7 +140,7 @@ public class ModuleModify extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dbHandler.deleteModule(moduleID);
-                        startActivity(new Intent(ModuleModify.this, StaffModule.class));
+                        finish();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

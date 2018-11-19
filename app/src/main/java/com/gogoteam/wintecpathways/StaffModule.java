@@ -119,4 +119,12 @@ public class StaffModule extends AppCompatActivity implements SearchView.OnQuery
         adapter.updateList(newList);
         return true;
     }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        initModuleList();
+        initRecyclerView();
+    }
 }
