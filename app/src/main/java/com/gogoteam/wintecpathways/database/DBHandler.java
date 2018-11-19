@@ -186,6 +186,7 @@ public class DBHandler extends SQLiteOpenHelper {
             if (isEnrolled(SID)) {
                 delFlag = false;
             } else {
+                db = getWritableDatabase();
                 db.execSQL("DELETE FROM " + TABLE_STUDENT + " WHERE SID = '" + SID + "'");
                 deleteStudentModule(SID);
             }
@@ -312,7 +313,9 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst();
 
-        if (!c.isAfterLast()) { returnValue = true; }
+        if (!c.isAfterLast()) {
+            if (!c.getString(c.getColumnIndex("Date_Enrolled")).equals("None")) { returnValue = true; }
+        }
         db.close();
         return returnValue;
     }
@@ -602,6 +605,18 @@ public class DBHandler extends SQLiteOpenHelper {
         student.setProgramme("Bachelor of Applied IT");
         student.setDate_Enrolled("20170105");
         moduleList.add(new StudentModule("16000004","COMP502","Yes"));
+        student.setModules(moduleList);
+        addStudent(student);
+
+        student = new Student();
+        moduleList = new LinkedList<>();
+        student.setSID("16000005");
+        student.setSName("Chrissss");
+        student.setEmail("Chrissss@student.wintec.nz.co");
+        student.setSpecialisation("Software Engineering");
+        student.setProgramme("Bachelor of Applied IT");
+        student.setDate_Enrolled("None");
+        moduleList.add(new StudentModule("16000005","COMP502","No"));
         student.setModules(moduleList);
         addStudent(student);
     }
@@ -908,7 +923,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setMID("INFO604");
         module.setMName("Database Systems");
         module.setPreMID_1("INFO503");
-        module.setPreMID_2("INFO601");
+        module.setPreMID_2("");
         module.setPreMID_3("");
         module.setPathway_1("Database Architecture");
         module.setPathway_2("");
@@ -974,7 +989,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //Level 7: 21 modules
         module = new Module();
-        module.setMID("INFO701/ITB7355");
+        module.setMID("INFO701");
         module.setMName("Project Management (Prince 2)");
         module.setPreMID_1("INFO502");
         module.setPreMID_2("");

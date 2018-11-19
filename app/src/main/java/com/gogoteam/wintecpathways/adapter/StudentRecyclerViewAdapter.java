@@ -1,6 +1,7 @@
 package com.gogoteam.wintecpathways.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,7 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gogoteam.wintecpathways.R;
+import com.gogoteam.wintecpathways.StudentModify;
 import com.gogoteam.wintecpathways.database.Student;
+import com.gogoteam.wintecpathways.student_modify_1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +45,17 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
         viewHolder.studentCode.setText(studentList.get(i).getSID());
         viewHolder.studentName.setText(studentList.get(i).getSName());
         //viewHolder.imageView.setImageAlpha(studentList.get(i).getImage());
+        //viewHolder.studentCode.setText(studentList.get(i).getSName());
 
         viewHolder.parentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(view.getContext(), moduleList.get(i).getMID(), Toast.LENGTH_SHORT).show();
-                String moduleID = studentList.get(i).getSID();
+                String studentID = studentList.get(i).getSID();
 
-                // go to module modify activity and pass the module code to the activity
-                //Intent intent = new Intent (view.getContext(), ModuleModify.class);
-                //intent.putExtra("moduleInfo", moduleID);
-                //mContext.startActivity(intent);
+                // go to student modify activity and pass the student ID to the activity
+                Intent intent = new Intent(view.getContext(), student_modify_1.class);
+                intent.putExtra("studentInfo", studentID);
+                mContext.startActivity(intent);
             }
         });
     }

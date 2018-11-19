@@ -94,15 +94,56 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
                 TextView levelID = (TextView) dialog.findViewById(R.id.levelID);
                 levelID.setText("Level " + module.getLevel());
 
+                String preReq = "";
                 TextView preReqTxt = (TextView) dialog.findViewById(R.id.preReqTxt);
-                preReqTxt.setText(module.getPreMID_2());
+                if (module.getPreMID_1()!=null && !module.getPreMID_1().equals("")) {
+                    preReq = preReq + module.getPreMID_1();
+                }
+                if (module.getPreMID_2()!=null && !module.getPreMID_2().equals("")) {
+                    if (!preReq.equals("")) {
+                        preReq = preReq + "/";
+                    }
+                    preReq = preReq + module.getPreMID_2();
+                }
+                if (module.getPreMID_3()!=null && !module.getPreMID_3().equals("")) {
+                    if (!preReq.equals("")) {
+                        preReq = preReq + "/";
+                    }
+                    preReq = preReq + module.getPreMID_3();
+                }
+                if (preReq.equals("")) {
+                    preReq = "None";
+                }
+                preReqTxt.setText(preReq);
 
+                String coreReq = "None";
                 TextView coReqTxt = (TextView) dialog.findViewById(R.id.coReqTxt);
-                coReqTxt.setText(module.getPreMID_3());
+                if (module.getMID().equals("INFO604")) {
+                    coreReq = "INFO601";
+                }
+                coReqTxt.setText(coreReq);
 
-
+                String pathWay = "Mandatory";
                 TextView streamTxt = (TextView) dialog.findViewById(R.id.streamTxt);
-                streamTxt.setText(module.getPathway_2());
+                if (module.getClassification().equals("Optional")) {
+                    pathWay = "";
+                }
+                if (module.getPathway_1()!=null && !module.getPathway_1().equals("")) {
+                    pathWay = pathWay + module.getPathway_1();
+                }
+                if (module.getPathway_2()!=null && !module.getPathway_2().equals("")) {
+                    if (!pathWay.equals("")) {
+                        pathWay = pathWay + "/";
+                    }
+                    pathWay = pathWay + module.getPathway_2();
+                }
+                if (module.getPathway_3()!=null && !module.getPathway_3().equals("")) {
+                    if (!pathWay.equals("")) {
+                        pathWay = pathWay + "/";
+                    }
+                    pathWay = pathWay + module.getPathway_3();
+                }
+                streamTxt.setText(pathWay);
 
                /* TextView classificationID = (TextView) dialog.findViewById(R.id.classificationID);
                 semesterID.setText(module.getClassification());*/
