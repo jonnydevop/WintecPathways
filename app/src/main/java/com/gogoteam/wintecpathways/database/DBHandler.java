@@ -642,7 +642,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("1");
-        module.setDescription("Description1");
+        module.setDescription("To enable students to apply fundamental IT technical support concepts and practice, and configure and administer systems and applications to meet organisational requirements.");
         module.setLevel("5");
         addModule(module);
 
@@ -659,7 +659,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("1");
-        module.setDescription("Description2");
+        module.setDescription("To enable students to apply the principles of software development to create simple working applications and use problem-solving and decision-making techniques to provide innovative and timely Information Technology outcomes.");
         module.setLevel("5");
         addModule(module);
 
@@ -676,7 +676,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("1");
-        module.setDescription("Description3");
+        module.setDescription("To enable students to apply professional, legal, and ethical principles and practices in a socially responsible manner as an emerging IT professional, and apply communication, personal and interpersonal skills to enhance effectiveness in an IT role.");
         module.setLevel("5");
         addModule(module);
 
@@ -693,7 +693,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("1");
-        module.setDescription("Description4");
+        module.setDescription("The student will be able to apply the fundamentals of information systems concepts and practice to support and enhance organisational processes and systems; and apply the fundamentals of interaction design concepts and practice to enhance interface design.");
         module.setLevel("5");
         addModule(module);
 
@@ -710,7 +710,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("2");
-        module.setDescription("Description5");
+        module.setDescription("To enable students to apply a broad operational knowledge of networking, and associated services and technologies to meet typical organisational requirements.");
         module.setLevel("5");
         addModule(module);
 
@@ -727,7 +727,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("2");
-        module.setDescription("Description6");
+        module.setDescription("To enable students to select, install, and configure IT hardware and systems software and use graphical (GUI) and command line interfaces (CLI) to meet organisational requirements.");
         module.setLevel("5");
         addModule(module);
 
@@ -744,7 +744,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("2");
-        module.setDescription("Description7");
+        module.setDescription("To enable students to apply a broad operational knowledge of database administration to meet typical organisational data storage and retrieval requirements, and apply conceptual knowledge of cloud services and virtualisation.");
         module.setLevel("5");
         addModule(module);
 
@@ -761,7 +761,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("1");
         module.setSemester("2");
-        module.setDescription("Description8");
+        module.setDescription("To enable students to demonstrate an operational knowledge and understanding of IT service management, identify common issues related to IT security, and troubleshoot and resolve a range of common system problems.");
         module.setLevel("5");
         addModule(module);
 
@@ -779,7 +779,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("3");
-        module.setDescription("Description9");
+        module.setDescription("To enable students to gain the skills to develop software applications using Object Oriented Programming techniques. Students will enrich their programming and problem solving skills by applying classes, objects, constructors, methods and properties, inheritance and polymorphism to develop programming applications.");
         module.setLevel("6");
         addModule(module);
 
@@ -796,7 +796,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("3");
-        module.setDescription("Description10");
+        module.setDescription("To enable students to gain the in depth knowledge and skills required to be able to write programs in web programming languages that solve various web programming tasks.");
         module.setLevel("6");
         addModule(module);
 
@@ -813,7 +813,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("3");
-        module.setDescription("Description11");
+        module.setDescription("To enable students to apply an indepth understanding of database modelling, database design and SQL concepts.");
         module.setLevel("6");
         addModule(module);
 
@@ -830,7 +830,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("3");
-        module.setDescription("Description12");
+        module.setDescription("To enable students to gain mathematical skills and acquire in-depth understanding of mathematics as applied to Information Technology.");
         module.setLevel("6");
         addModule(module);
 
@@ -847,7 +847,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description13");
+        module.setDescription("To enable students to examine the working environment and applications that are used in the web industry.");
         module.setLevel("6");
         addModule(module);
 
@@ -864,7 +864,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description14");
+        module.setDescription("To enable students to develop an understanding of the principles and processes involved in effective interpersonal communication and technical writing used in managing client relationships.");
         module.setLevel("6");
         addModule(module);
 
@@ -881,7 +881,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description15");
+        module.setDescription("To enable students to apply programming and analytical skills to implement and analyze common data structures for computer programs. Students will cover a wide range of computer programming algorithms.");
         module.setLevel("6");
         addModule(module);
 
@@ -898,7 +898,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description16");
+        module.setDescription("To enable students to obtain the mathematical skills to facilitate an in-depth understanding of advanced programming techniques. Students will be able to solve problems in recurrence functions, asymptotic functions, algorithmic puzzles, combinatorics and graph theory and advanced topics in probability and statistics.");
         module.setLevel("6");
         addModule(module);
 
@@ -915,7 +915,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description17");
+        module.setDescription("To enable students to gain the in depth knowledge and skills required to be able to write programs in web programming languages that solve various web programming tasks.");
         module.setLevel("6");
         addModule(module);
 
@@ -932,7 +932,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description18");
+        module.setDescription("To enable students to understand and discuss database systems, concepts, modelling, design and administration, and to apply theoretical and practical administrative tasks in a database administrator's role.");
         module.setLevel("6");
         addModule(module);
 
@@ -949,7 +949,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description19");
+        module.setDescription("To enable students to gain the skills and knowledge required to effectively plan, install and administer a Microsoft Windows Server.");
         module.setLevel("6");
         addModule(module);
 
@@ -966,7 +966,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description20");
+        module.setDescription("To enable students to configure, troubleshoot and understand the operation of Routers, Routing Protocols, Switches and VLANs in a networking environment, and complete the Cisco Certified Network Associate 2 (CCNA2) Curriculum.");
         module.setLevel("6");
         addModule(module);
 
@@ -983,7 +983,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("2");
         module.setSemester("4");
-        module.setDescription("Description21");
+        module.setDescription("To enable students to develop the knowledge and skills required to design and develop effective graphics and animation, and to apply various visual effects for static graphics as well as create 3D models and produce 2D and 3D animation.");
         module.setLevel("6");
         addModule(module);
 
@@ -1001,7 +1001,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description22");
+        module.setDescription("To enable students to understand and apply the theory of project management with particular emphasis on Information Technology projects.");
         module.setLevel("7");
         addModule(module);
 
@@ -1018,7 +1018,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description23");
+        module.setDescription("To enable students to develop an understanding of the common principles of business practice whilst focussing on the theoretical and practical concepts of accounting, marketing and management in order to understand the business context within which Information Technology solutions are developed.");
         module.setLevel("7");
         addModule(module);
 
@@ -1035,7 +1035,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description24");
+        module.setDescription("To enable students to understand supporting theories and principles of game design and apply these to the art and science of game design, development and programming.");
         module.setLevel("7");
         addModule(module);
 
@@ -1052,7 +1052,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description25");
+        module.setDescription("To enable students to gain the practical knowledge and skills required to store, manage and analyse large amounts of data, using appropriate algorithms.");
         module.setLevel("7");
         addModule(module);
 
@@ -1069,7 +1069,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description26");
+        module.setDescription("To enable students to understand and apply various front end applications and their interfaces with supporting databases.");
         module.setLevel("7");
         addModule(module);
 
@@ -1086,7 +1086,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description27");
+        module.setDescription("To enable students to gain an in-depth knowledge of cloud server database concepts, fundamentals and essentials. They will apply practical skills to install, setup, configure, manage and maintain a cloud server database and deploy cloud database services to support database applications.");
         module.setLevel("7");
         addModule(module);
 
@@ -1103,7 +1103,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description28");
+        module.setDescription("To enable students to gain an understanding of the architecture, components, and operations of routers and switches in larger and more complex networks.");
         module.setLevel("7");
         addModule(module);
 
@@ -1120,7 +1120,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description29");
+        module.setDescription("To enable students to understand and configure the components, and operation of Virtual Private Networks, firewalls and network security, which will enable them to complete the Cisco Certified Network Associate Security curriculum.");
         module.setLevel("7");
         addModule(module);
 
@@ -1137,7 +1137,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("5");
-        module.setDescription("Description30");
+        module.setDescription("To enable students to study and apply visual techniques that transform data into a format efficient for human perception, cognition, and communication, thus allowing for extraction of meaningful information and insight. Students will investigate data visualisation techniques, human visual systems and cognitive perception, and design, construct, and evaluate data visualisations.");
         module.setLevel("7");
         addModule(module);
 
@@ -1154,12 +1154,12 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description31");
+        module.setDescription("Students will gain comprehensive knowledge of software testing methodologies and software testing tools used in industry and apply fundamental aspects of software testing incorporating system requirements, quality assurance, testing processes, automation, testing types and testing levels. This forms the third part of the Software Engineering Capstone Project.");
         module.setLevel("7");
         addModule(module);
 
         module = new Module();
-        module.setMID("COMP708");
+        module.setMID("COMP715 ");
         module.setMName("Software Engineering Project ");
         module.setPreMID_1("COMP605");
         module.setPreMID_2("MATH602");
@@ -1171,7 +1171,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description32");
+        module.setDescription("Students will gain advanced software development skills. They will be able to provide an in depth analysis of prototyping, performance, correctness, software reusability, scalability and quality and maintenance and appropriate documentation. This module is the Software Engineering capstone project.");
         module.setLevel("7");
         addModule(module);
 
@@ -1188,7 +1188,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description33");
+        module.setDescription("To enable students to design, develop and implement mobile applications on a given platform.");
         module.setLevel("7");
         addModule(module);
 
@@ -1205,7 +1205,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description34");
+        module.setDescription("To enable students to examine the main components of data warehousing and apply it to business intelligence applications, enabling them to provide solutions which incorporate extracting data from different sources, storing data in a data warehouse and developing applications for business decision-making.");
         module.setLevel("7");
         addModule(module);
 
@@ -1222,13 +1222,13 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description35");
+        module.setDescription("To enable students to apply practical knowledge of Model View Controller (MVC) frameworks to plan, design and implement web applications. The core focus will be on architecture design and implementation of a web application that will meet a set of functional requirements and user interface requirements, and address business models.");
         module.setLevel("7");
         addModule(module);
 
         module = new Module();
-        module.setMID("INFO705");
-        module.setMName("Datebase Architecture Project");
+        module.setMID("COMP607");
+        module.setMName("Database Architecture Project");
         module.setPreMID_1("INFO601");
         module.setPreMID_2("INFO604");
         module.setPreMID_3("");
@@ -1239,7 +1239,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description36");
+        module.setDescription("To enable students to develop the knowledge and skills required to design and develop effective graphics and animation, and to apply various visual effects for static graphics as well as create 3D models and produce 2D and 3D animation.");
         module.setLevel("7");
         addModule(module);
 
@@ -1256,16 +1256,16 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description37");
+        module.setDescription("To enable students to investigate and configure advanced system administration tools, advanced network virtualisation and wireless networking technologies. Students will also research emerging networking technologies.");
         module.setLevel("7");
         addModule(module);
 
         module = new Module();
-        module.setMID("COMP703");
+        module.setMID("COMP714");
         module.setMName("Network Engineering Project");
-        module.setPreMID_1("INFO603");
-        module.setPreMID_2("INFO701");
-        module.setPreMID_3("COMP702");
+        module.setPreMID_1("COMP701");
+        module.setPreMID_2("COMP702 ");
+        module.setPreMID_3("");
         module.setPathway_1("Network Engineering");
         module.setPathway_2("");
         module.setPathway_3("");
@@ -1273,7 +1273,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description38");
+        module.setDescription("To enable students to develop a Computer networking solution from a set of requirements documents. This module is the Network Engineering Capstone Project.");
         module.setLevel("7");
         addModule(module);
 
@@ -1290,7 +1290,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description39");
+        module.setDescription("To enable students to gain an understanding of Wide Area Network (WAN) technologies and network services required by converged applications in a complex network.");
         module.setLevel("7");
         addModule(module);
 
@@ -1307,7 +1307,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description40");
+        module.setDescription("To enable students to investigate computer system attacks and vulnerabilities in relation to operating systems (OS), applications, networking and websites, and investigate the security techniques for protecting a computer system from such attacks.");
         module.setLevel("7");
         addModule(module);
 
@@ -1324,15 +1324,15 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description41");
+        module.setDescription("To enable students to understand the supporting theories and principles of user interface design with respect to human computer interaction. They will investigate applications in human computer interaction and apply usability best practices and processes.");
         module.setLevel("7");
         addModule(module);
 
         module = new Module();
-        module.setMID("COMP711");
+        module.setMID("INFO708");
         module.setMName("Web Development Project");
-        module.setPreMID_1("COMP602");
-        module.setPreMID_2("COMP606");
+        module.setPreMID_1("COMP606");
+        module.setPreMID_2("COMP607");
         module.setPreMID_3("");
         module.setPathway_1("Multimedia and Web Development");
         module.setPathway_2("");
@@ -1341,7 +1341,7 @@ public class DBHandler extends SQLiteOpenHelper {
         module.setCredits("15");
         module.setYear("3");
         module.setSemester("6");
-        module.setDescription("Description42");
+        module.setDescription("To enable students to study and apply visual techniques that transform data into a format efficient for human perception, cognition, and communication, thus allowing for extraction of meaningful information and insight. Students will investigate data visualisation techniques, human visual systems and cognitive perception, and design, construct, and evaluate data visualisations.");
         module.setLevel("7");
         addModule(module);
     }
