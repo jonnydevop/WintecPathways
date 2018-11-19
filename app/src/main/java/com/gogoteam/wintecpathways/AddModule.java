@@ -36,6 +36,7 @@ public class AddModule extends AppCompatActivity {
     TextInputEditText yearTxt;
     TextInputEditText preReqTxt1;
     TextInputEditText preReqTxt2;
+    TextInputEditText preReqTxt3;
     TextInputEditText coReqTxt;
     TextInputEditText descriTxt;
     CheckBox manCheBox;
@@ -63,7 +64,7 @@ public class AddModule extends AppCompatActivity {
         yearTxt = findViewById(R.id.yearTxt);
         preReqTxt1 = findViewById(R.id.preReqTxt1);
         preReqTxt2 = findViewById(R.id.preReqTxt2);
-        //preReqTxt3 = findViewById(R.id.preReqTxt3);
+        preReqTxt3 = findViewById(R.id.preReqTxt3);
         coReqTxt = findViewById(R.id.coReqTxt);
         descriTxt = findViewById(R.id.descriTxt);
         manCheBox =  findViewById(R.id.manCheBox);
@@ -120,7 +121,6 @@ public class AddModule extends AppCompatActivity {
         creditTxt.setText(moduleList.get(0).getCredits());
         semesterTxt.setText(moduleList.get(0).getSemester());
         yearTxt.setText(moduleList.get(0).getYear());
-        preReqTxt2.setText(moduleList.get(0).getPreMID_2());
         descriTxt.setText(moduleList.get(0).getDescription());
         coReqTxt.setText("None");
 
@@ -141,7 +141,7 @@ public class AddModule extends AppCompatActivity {
 
         preReqTxt1.setText(preReq[0]);
         preReqTxt2.setText(preReq[1]);
-        preReqTxt2.setText(preReq[2]);
+        preReqTxt3.setText(preReq[2]);
 
         if(moduleList.get(0).getClassification().equals("Mandatory"))
             manCheBox.setChecked(true);
