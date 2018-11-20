@@ -415,7 +415,7 @@
     <TextView
         android:id="@+id/descripTxt"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -423,12 +423,16 @@
         android:text="Module Description"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.163"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:maxLines="15"           />
 
 
     <android.support.constraint.Guideline
