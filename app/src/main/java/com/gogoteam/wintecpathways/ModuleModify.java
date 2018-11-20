@@ -105,11 +105,16 @@ public class ModuleModify extends AppCompatActivity {
         nameTxt.setText(moduleList.get(0).getMName());
         levelTxt.setText(moduleList.get(0).getLevel());
         creditTxt.setText(moduleList.get(0).getCredits());
-        streamTxt.setText(pathway);
-        prereqTxt.setText(preModID);
-        coreqTxt.setText("None");
-        descripTxt.setText(moduleList.get(0).getDescription());
-        descripTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
+        if(streamTxt!= null)
+            streamTxt.setText(pathway);
+        if(prereqTxt!= null)
+            prereqTxt.setText(preModID);
+        if(coreqTxt!= null)
+            coreqTxt.setText("None");
+        if(descripTxt!= null) {
+            descripTxt.setText(moduleList.get(0).getDescription());
+            descripTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
+        }
 
 
         // log for testing DB, these details should be shown on layout, GOGO Juan!!
