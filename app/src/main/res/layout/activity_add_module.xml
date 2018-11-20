@@ -371,7 +371,7 @@
                 android:id="@+id/softCheBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Software Engineer"
+                android:text="Software Engineering"
                />
         </LinearLayout>
 
@@ -426,7 +426,7 @@
                 android:id="@+id/netCheBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Network Engineer"
+                android:text="Network Engineering"
                  />
         </LinearLayout>
 
