@@ -168,12 +168,12 @@
         app:layout_constraintTop_toTopOf="@+id/guideline8">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/phoneText"
+            android:id="@+id/programmeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:inputType="phone"
-            android:hint="Phone"
+            android:inputType="textLongMessage"
+            android:hint="Program"
             android:textStyle="italic" />
     </android.support.design.widget.TextInputLayout>
 
