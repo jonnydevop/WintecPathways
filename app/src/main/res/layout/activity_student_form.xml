@@ -232,7 +232,7 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <Spinner
-        android:id="@+id/spinnerid"
+        android:id="@+id/pathwayID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -245,7 +245,6 @@
 
     </Spinner>
 
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
@@ -254,8 +253,6 @@
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.85"/>
 
-
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
@@ -263,7 +260,5 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="1"/>
-
-
 
 </android.support.constraint.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +23,15 @@ import com.gogoteam.wintecpathways.database.StudentModule;
 import java.util.List;
 
 public class student_modify_1 extends AppCompatActivity {
+
     Student student;
     DBHandler dbHandler;
     Bundle studentInfo;
     String studentID;
     private List<Student> studentList;
+
+
+    //EditText nameText, studentidText, emailText, phoneText, dateText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,7 @@ public class student_modify_1 extends AppCompatActivity {
         dbHandler = new DBHandler(this, null, null, 1);
 
         studentInfo = getIntent().getExtras();
-        if (studentInfo == null){
+        if (studentInfo == null) {
             return;
         }
         studentID = studentInfo.getString("studentInfo");
@@ -48,8 +53,15 @@ public class student_modify_1 extends AppCompatActivity {
         showStudentInfo();
     }
 
-    public void showStudentInfo()
-    {
+    @Override
+    public void onResume() {
+        super.onResume();
+        //if (studentInfo != null) {
+            showStudentInfo();
+        //}
+    }
+
+    public void showStudentInfo() {
         String moduleStr = "";
         StudentModule sm;
 
@@ -64,14 +76,15 @@ public class student_modify_1 extends AppCompatActivity {
         student.setSID(studentID);
         studentList = dbHandler.searchStudent(student);
 
+        Log.i("chrisita", "showStudentInfo" + studentList.get(0).getSName());
         Name.setText(studentList.get(0).getSName());
         ID.setText(studentList.get(0).getSID());
         email.setText(studentList.get(0).getEmail());
         date.setText(studentList.get(0).getDate_Enrolled());
         programme.setText(studentList.get(0).getProgramme());
         pathway.setText(studentList.get(0).getSpecialisation());
-        if (studentList.get(0).getModules()!=null) {
-            for (int i=0; i<studentList.get(0).getModules().size();i++) {
+        if (studentList.get(0).getModules() != null) {
+            for (int i = 0; i < studentList.get(0).getModules().size(); i++) {
                 sm = studentList.get(0).getModules().get(i);
                 if (sm.getCompletion().equals("No")) {
                     if (!moduleStr.equals("")) {
@@ -95,9 +108,9 @@ public class student_modify_1 extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         DBHandler dbHandler = new DBHandler(this, null, null, 1);
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -105,12 +118,17 @@ public class student_modify_1 extends AppCompatActivity {
             case R.id.action_delete:
                 deleteBtn();
                 return true;
+            case R.id.action_edit:
+                editBtn();
+                Log.i("chrisita", "editstudent");
+                return true;
         }
-        return false;    }
+        return false;
+    }
 
     // when click delete button
-    public void deleteBtn()
-    {Log.i("nancy", "del student");
+    public void deleteBtn() {
+        Log.i("nancy", "del student");
 
         // confirmation of deleting a module by senging module code
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -120,14 +138,14 @@ public class student_modify_1 extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log.i("nancy", "del student yes:" + studentID);
-                        if (dbHandler.deleteStudent(studentID)==false) {
-                            Toast.makeText(student_modify_1.this,"Delete failed as the student is enrolled!",Toast.LENGTH_LONG).show();
+                        if (dbHandler.deleteStudent(studentID) == false) {
+                            Toast.makeText(student_modify_1.this, "Delete failed as the student is enrolled!", Toast.LENGTH_LONG).show();
                         }
                         finish();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick (DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 });
@@ -135,9 +153,20 @@ public class student_modify_1 extends AppCompatActivity {
         disc.setContentView(R.layout.delete_dialog);
         disc.show();
         //disc.getWindow().setBackgroundDrawableResource(R.color.orangecard);
-
-        TextView messageText = (TextView)disc.findViewById( android.R.id.message );
-        messageText.setGravity( Gravity.CENTER_HORIZONTAL );
+        TextView messageText = (TextView) disc.findViewById(android.R.id.message);
+        messageText.setGravity(Gravity.CENTER_HORIZONTAL);
     }
+
+    public void editBtn() {
+
+       Log.i("chrisita", "editstudent1");
+        Intent intent = new Intent (student_modify_1.this, AddStudentActivity.class);
+        Log.i("chrisita", "editstudent2");
+        intent.putExtra("studentInfo", studentID);
+        Log.i("chrisita", "editstudent3");
+        startActivity(intent);
+    }
+
+
 
 }
