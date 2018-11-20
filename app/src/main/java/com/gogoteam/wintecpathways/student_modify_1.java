@@ -2,6 +2,7 @@ package com.gogoteam.wintecpathways;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +31,7 @@ public class student_modify_1 extends AppCompatActivity {
     Bundle studentInfo;
     String studentID;
     private List<Student> studentList;
-
+    String moduleStr = "";
 
     //EditText nameText, studentidText, emailText, phoneText, dateText;
 
@@ -62,7 +64,7 @@ public class student_modify_1 extends AppCompatActivity {
     }
 
     public void showStudentInfo() {
-        String moduleStr = "";
+
         StudentModule sm;
 
         TextView Name = findViewById(R.id.nameText);
@@ -76,13 +78,14 @@ public class student_modify_1 extends AppCompatActivity {
         student.setSID(studentID);
         studentList = dbHandler.searchStudent(student);
 
-        Log.i("chrisita", "showStudentInfo" + studentList.get(0).getSName());
+        Log.i("student_modify_1", "showStudentInfo" + studentList.get(0).getSName());
         Name.setText(studentList.get(0).getSName());
         ID.setText(studentList.get(0).getSID());
         email.setText(studentList.get(0).getEmail());
         date.setText(studentList.get(0).getDate_Enrolled());
         programme.setText(studentList.get(0).getProgramme());
         pathway.setText(studentList.get(0).getSpecialisation());
+
         if (studentList.get(0).getModules() != null) {
             for (int i = 0; i < studentList.get(0).getModules().size(); i++) {
                 sm = studentList.get(0).getModules().get(i);
@@ -120,7 +123,7 @@ public class student_modify_1 extends AppCompatActivity {
                 return true;
             case R.id.action_edit:
                 editBtn();
-                Log.i("chrisita", "editstudent");
+                Log.i("student_modify_1", "editstudent");
                 return true;
         }
         return false;
@@ -137,7 +140,7 @@ public class student_modify_1 extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.i("nancy", "del student yes:" + studentID);
+                        Log.i("student_modify_1", "del student yes:" + studentID);
                         if (dbHandler.deleteStudent(studentID) == false) {
                             Toast.makeText(student_modify_1.this, "Delete failed as the student is enrolled!", Toast.LENGTH_LONG).show();
                         }
@@ -159,14 +162,37 @@ public class student_modify_1 extends AppCompatActivity {
 
     public void editBtn() {
 
-       Log.i("chrisita", "editstudent1");
+       Log.i("student_modify_1", "editstudent1");
         Intent intent = new Intent (student_modify_1.this, AddStudentActivity.class);
-        Log.i("chrisita", "editstudent2");
+        Log.i("student_modify_1", "editstudent2");
         intent.putExtra("studentInfo", studentID);
-        Log.i("chrisita", "editstudent3");
+        Log.i("student_modify_1", "editstudent3");
         startActivity(intent);
     }
 
+    //Send email functionality
+    public void sendEmail(View view){
 
+        Log.i("student_modify_1", "SendEmail - StudentList size:  " + studentList.size());
+
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("mailto"));
+
+        String [] email = { studentList.get(0).getEmail()};
+        intent.putExtra(Intent.EXTRA_EMAIL,email);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Student Module Details");
+        intent.putExtra(Intent.EXTRA_TEXT, "Student ID: "+ studentID +
+                "\n\nEnrolled: "+ studentList.get(0).getDate_Enrolled() +
+                "\n\nProgramme: "+ studentList.get(0).getProgramme() +
+                "\n\nSpecialisation: "+ studentList.get(0).getSpecialisation() +
+                "\n\n\n\nMODULES: \n\n\n "+ moduleStr );
+
+        //intent.setType("message/rfc822");
+        intent.setType("text/plain");
+
+        startActivity(Intent.createChooser(intent, "Send Email"));
+
+    }
 
 }
