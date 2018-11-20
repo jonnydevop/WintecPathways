@@ -212,6 +212,8 @@ public class AddModule extends AppCompatActivity {
     public void addEditModule(){
         boolean saveSuccess = true;
         String[] pathway = {"","",""};
+        String[] preMid = {"","",""};
+        int index =0, index1 = 0;
 
         module.setPreMID_1("");
         module.setPreMID_2("");
@@ -226,7 +228,6 @@ public class AddModule extends AppCompatActivity {
         }
         else
         {
-            int index =0;
             module.setClassification("Optional");
 
             if(softCheBox.isChecked()) {
@@ -249,18 +250,32 @@ public class AddModule extends AppCompatActivity {
             module.setPathway_3(pathway[2]);
         }
 
+        if(!preReqTxt1.getText().toString().equals("None") && !preReqTxt1.getText().toString().equals(""))
+        {
+            preMid[index1] = preReqTxt1.getText().toString();
+            index1 ++;
+        }
+        if(!preReqTxt2.getText().toString().equals("None") && !preReqTxt2.getText().toString().equals(""))
+        {
+            preMid[index1] = preReqTxt2.getText().toString();
+            index1 ++;
+        }
+        if(!preReqTxt3.getText().toString().equals("None") && !preReqTxt3.getText().toString().equals(""))
+        {
+            preMid[index1] = preReqTxt3.getText().toString();
+            index1 ++;
+        }
+
+        module.setPreMID_1(preMid[0]);
+        module.setPreMID_2(preMid[1]);
+        module.setPreMID_3(preMid[2]);
+
         module.setMID(moduleCode.getText().toString());
         module.setMName(nameTxt.getText().toString());
         module.setLevel(levelTxt.getText().toString());
         module.setCredits(creditTxt.getText().toString());
         module.setSemester(semesterTxt.getText().toString());
         module.setYear(yearTxt.getText().toString());
-        if(!preReqTxt1.getText().toString().equals("None"))
-            module.setPreMID_1(preReqTxt1.getText().toString());
-        if(!preReqTxt2.getText().toString().equals("None"))
-            module.setPreMID_2(preReqTxt2.getText().toString());
-        //if(!preReqTxt3.getText().toString().equals("None"))
-            //module.setPreMID_2(preReqTxt3.getText().toString());
         module.setDescription(descriTxt.getText().toString());
         Log.i("chris", "addEditModule  get preMid  " + preReqTxt1.getText().toString());
 

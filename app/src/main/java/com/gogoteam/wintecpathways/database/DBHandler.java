@@ -321,7 +321,8 @@ public class DBHandler extends SQLiteOpenHelper {
         c.moveToFirst();
 
         if (!c.isAfterLast()) {
-            if (!c.getString(c.getColumnIndex("Date_Enrolled")).equals("None")) { returnValue = true; }
+            if (!c.getString(c.getColumnIndex("Date_Enrolled")).equals("") &&
+                    !c.getString(c.getColumnIndex("Date_Enrolled")).equals("None")) { returnValue = true; }
         }
         db.close();
         return returnValue;
