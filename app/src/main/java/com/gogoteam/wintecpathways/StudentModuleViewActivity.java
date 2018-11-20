@@ -149,7 +149,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
            if(moduleList!= null && moduleList.size() > 0) {
             //adding some items to our list
-            for (int i = 16; i < 24; i++) {
+            for (int i = 16; i < moduleList.size() ; i++) {
 
                 moduleListYear3.add(new StudentProductsActivity(
                         moduleList.get(i).getMID(),
