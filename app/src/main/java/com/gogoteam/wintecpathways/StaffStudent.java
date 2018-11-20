@@ -67,7 +67,7 @@ public class StaffStudent extends AppCompatActivity implements SearchView.OnQuer
 
     private void addStudent(View v)
     {
-        Log.i("Nancy", "addmodule  ");
+        Log.i("Nancy", "addStudent  ");
         // go to add module activity
         startActivity(new Intent(StaffStudent.this, AddStudentActivity.class));
     }
@@ -115,5 +115,13 @@ public class StaffStudent extends AppCompatActivity implements SearchView.OnQuer
         }
         adapter.updateList(newList);
         return true;
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        initModuleList();
+        initRecyclerView();
     }
 }

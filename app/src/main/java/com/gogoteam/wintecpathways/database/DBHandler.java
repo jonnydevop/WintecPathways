@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.media.Image;
+import android.util.Log;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -103,6 +104,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Add a student
     public boolean addStudent(Student student) {
         //Duplicate check
+        Log.i("chrisita", "DB addStudent 00 ");
         if (isSIDDuplicate(student.getSID())) {return false;}
 
         ContentValues values;
@@ -143,10 +145,11 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Update student
     public void updateStudent(Student student) {
+        Log.i("chrisita", "DB updateStudent 00 " + student.getSpecialisation());
         ContentValues values;
         SQLiteDatabase db = getWritableDatabase();
         String[] whereArgs = new String[1];
-
+        String whereClause;
         //Update student
         values = new ContentValues();
         values.put(COLUMN_SName, student.getSName());
@@ -155,7 +158,11 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_Programme, student.getProgramme());
         values.put(COLUMN_Date_Enrolled, student.getDate_Enrolled());
         whereArgs[0] = student.getSID();
-        db.update(TABLE_STUDENT, values, COLUMN_SID, whereArgs);
+        Log.i("chrisita", "DB updateStudent getSID; " + student.getSID());
+
+        whereClause = COLUMN_SID + "=?";
+        db.update(TABLE_STUDENT, values,whereClause , whereArgs);
+        Log.i("chrisita", "DB updateStudent 11 " + student.getSpecialisation());
 
         //Update Student Module
         if (student.getModules() != null)
