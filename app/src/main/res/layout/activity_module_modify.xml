@@ -7,13 +7,16 @@
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
     tools:context=".ModuleModify"
-    android:background="@drawable/button_shape">
+    android:background="@color/lightgrey"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/button_shape">
 
     <!-- Module Code-->
         <LinearLayout
