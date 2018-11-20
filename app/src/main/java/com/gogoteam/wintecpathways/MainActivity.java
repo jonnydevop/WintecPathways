@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     });
             AlertDialog disc = builder.create();
             disc.show();
-            disc.getWindow().setBackgroundDrawableResource(R.color.endOrangeGradient);
+            //disc.getWindow().setBackgroundDrawableResource(R.color.endOrangeGradient);
         }
 
         studentCard = (CardView)findViewById(R.id.studentView);
@@ -90,19 +90,16 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("About")
                 .setMessage(this.getString(R.string.about))
                 .setCancelable(false)
+                .setIcon(R.mipmap.logo)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-                    public void onClick (DialogInterface dialog, int id) {
-                        SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
-                        SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Version", getString(R.string.version));
-                        edit.commit();
+                    public void onClick (DialogInterface dialog, int id)   {
                         dialog.cancel();
                     }
                 });
         AlertDialog disc = builder.create();
         disc.show();
-        disc.getWindow().setBackgroundDrawableResource(R.color.endOrangeGradient);
+        //disc.getWindow().setBackgroundDrawableResource(R.color.endOrangeGradient);
         return true;
     }
 }
