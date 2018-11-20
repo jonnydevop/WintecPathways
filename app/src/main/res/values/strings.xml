@@ -6,6 +6,8 @@
     Pathways may change accordingly making older versions redundant - Wintec takes no responsibility
     of outdated pathways or information displayed on the app.</string>
     <string name="version">1</string>
+    <string name="about">Version 1.0\n This is a project created for Wintec by the group CocoaTeam composed by the members\n Ling Zhang\n Huei Jong Tu\n
+    Chrisita Rajan\n Juan Cabello\n Venkateswar Reddy Raavi</string>
 
 
     <array name="pathways">

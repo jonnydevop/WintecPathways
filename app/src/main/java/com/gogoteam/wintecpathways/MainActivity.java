@@ -13,7 +13,7 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.AdapterView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -80,27 +80,29 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.about_menu, menu);
-
-        MenuItem.OnActionExpandListener onActionExpandListener = new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem menuItem) {
-                setContentView(R.layout.activity_pathway);
-                return true;
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
-                setContentView(R.layout.activity_pathway);
-                return true;
-            }
-        };
-
-        MenuItem aboutItem = menu.findItem(R.id.aboutitem);
-        aboutItem.setOnActionExpandListener(onActionExpandListener);
+        getMenuInflater().inflate(R.menu.about_menu,menu);
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("About")
+                .setMessage(this.getString(R.string.about))
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-
+                    public void onClick (DialogInterface dialog, int id) {
+                        SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.putString("Version", getString(R.string.version));
+                        edit.commit();
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog disc = builder.create();
+        disc.show();
+        disc.getWindow().setBackgroundDrawableResource(R.color.endOrangeGradient);
+        return true;
+    }
 }
