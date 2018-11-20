@@ -13,7 +13,7 @@ public class Student {
     private	String Programme;
     private String Date_Enrolled;
     private List<StudentModule> studentModules;
-    private Image SImage;
+    private String SImage;
 
     //private int image;
 
@@ -77,11 +77,11 @@ public class Student {
         this.studentModules = modules;
     }
 
-    public void setSImage(Image SImage) {
+    public void setSImage(String SImage) {
         this.SImage = SImage;
     }
 
-    public Image getSImage() {
+    public String getSImage() {
         return SImage;
     }
 }

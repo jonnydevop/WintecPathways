@@ -114,9 +114,7 @@ public class PathwayActivity extends AppCompatActivity {
 //        return true;
 //    }
 
-    private void viewData(){
 
-    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){

@@ -1,4 +1,5 @@
 package com.gogoteam.wintecpathways;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.gogoteam.wintecpathways.adapter.ModuleAdapter;
 import com.gogoteam.wintecpathways.database.DBHandler;
@@ -39,6 +41,10 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pathway_view);
 
+        ActionBar actionBar = getSupportActionBar();
+
+
+
         //tabHost
         TabHost tabHost = findViewById(R.id.tabHost);
         tabHost.setup();
@@ -47,11 +53,15 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle!= null)
              pathway = bundle.getString("pathway");
+
+        actionBar.setTitle(pathway);
+
         Log.i("StudentModuleViewAivity", "Pathway:" + pathway);
 
         //Retrieve modules information
         dbHandler = new DBHandler(this, null, null, 1);
         moduleList = dbHandler.retrievePathway(pathway);
+
         Log.i("StudentModuleViewAivity", "Modules list size:  " + String.valueOf(moduleList.size()));
 
         /** for(int j=0;j < moduleList.size();j++)

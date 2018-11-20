@@ -21,7 +21,7 @@
             android:layout_margin="20dp"
             android:textSize="20sp"
             android:textColor="@android:color/black"
-            android:text="Admin password" />
+            android:text="Are you Staff?\nPlease, enter your password:" />
 
     </LinearLayout>
     <LinearLayout

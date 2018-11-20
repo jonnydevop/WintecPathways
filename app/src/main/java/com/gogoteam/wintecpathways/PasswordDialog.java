@@ -44,7 +44,7 @@ public class PasswordDialog extends Dialog {
                     errorInputLayout.setError("Please enter password");
 
 
-                }else if(!textPassword.getText().toString().equals("Admin")){// Here you can change password
+                }else if(!textPassword.getText().toString().equals("1234")){// Here you can change password
                     errorInputLayout.setError("Incorrect password");
 
                 }else{

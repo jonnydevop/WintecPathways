@@ -118,6 +118,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_Specialisation, student.getSpecialisation());
         values.put(COLUMN_Programme, student.getProgramme());
         values.put(COLUMN_Date_Enrolled, student.getDate_Enrolled());
+        values.put(COLUMN_SImage, student.getSImage());
         db.insert(TABLE_STUDENT, null, values);
 
         //Add Student Module
@@ -157,6 +158,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_Specialisation, student.getSpecialisation());
         values.put(COLUMN_Programme, student.getProgramme());
         values.put(COLUMN_Date_Enrolled, student.getDate_Enrolled());
+        values.put(COLUMN_SImage, student.getSImage());
         whereArgs[0] = student.getSID();
         Log.i("chrisita", "DB updateStudent getSID; " + student.getSID());
 
@@ -252,6 +254,7 @@ public class DBHandler extends SQLiteOpenHelper {
             student.setSpecialisation(c.getString(c.getColumnIndex("Specialisation")));
             student.setProgramme(c.getString(c.getColumnIndex("Programme")));
             student.setDate_Enrolled(c.getString(c.getColumnIndex("Date_Enrolled")));
+            student.setSImage(c.getString(c.getColumnIndex("SImage")));
 
             //student module information
             student.setModules(searchStudentModule(c.getString(c.getColumnIndex("SID"))));

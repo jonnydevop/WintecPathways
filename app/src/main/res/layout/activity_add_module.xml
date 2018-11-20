@@ -258,7 +258,7 @@
                         android:layout_margin="20dp"
                         android:hint="Pre-requisite1"
                         android:inputType="text"
-                        android:onClick="onClick"
+
                         android:textStyle="italic" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -282,7 +282,6 @@
                         android:layout_margin="20dp"
                         android:hint="Pre-requisite2"
                         android:inputType="text"
-                        android:onClick="onClick"
                         android:textStyle="italic" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -313,7 +312,6 @@
                         android:layout_margin="20dp"
                         android:hint="Pre-requisite3"
                         android:inputType="text"
-                        android:onClick="onClick"
                         android:textStyle="italic" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -338,7 +336,6 @@
                         android:layout_margin="20dp"
                         android:hint="Co-requisite"
                         android:inputType="text"
-                        android:onClick="onClick"
                         android:textStyle="italic" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -530,7 +527,6 @@
                         android:layout_margin="20dp"
                         android:hint="Module Description"
                         android:inputType="text"
-                        android:onClick="onClick"
                         android:textStyle="italic" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>

@@ -224,7 +224,7 @@
                         android:inputType="date"
                         android:hint="Date Enrolled"
                         android:textStyle="italic"
-                        android:onClick="onClick"/>
+                        />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </LinearLayout>

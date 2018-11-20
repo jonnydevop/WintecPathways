@@ -92,7 +92,9 @@ public class StaffModule extends AppCompatActivity implements SearchView.OnQuery
         getMenuInflater().inflate(R.menu.search,menu);
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
+
         SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Search Module");
         searchView.setOnQueryTextListener(this);
 
         return true;
