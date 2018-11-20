@@ -170,15 +170,6 @@ public class AddModule extends AppCompatActivity {
 
         }
 
-
-        // log for testing DB, these details should be shown on layout, GOGO Juan!!
-        Log.i("chris", "showModuleInfo  " + moduleList.get(0).getMID() + " " +
-                moduleList.get(0).getClassification() + " " +
-                moduleList.get(0).getSemester() + " " +
-                moduleList.get(0).getMName() + " " +
-                moduleList.get(0).getPathway_1()+ " " +
-                moduleList.get(0).getPreMID_1() + " " +
-                moduleList.get(0).getYear());
     }
 
     // when save button is clicked
@@ -231,7 +222,7 @@ public class AddModule extends AppCompatActivity {
             module.setClassification("Optional");
 
             if(softCheBox.isChecked()) {
-                pathway[index] = "Software Engineer";
+                pathway[index] = "Software Engineering";
                 index++;
             }
             if(dbCheBox.isChecked()) {
@@ -239,7 +230,7 @@ public class AddModule extends AppCompatActivity {
                 index++;
             }
             if(netCheBox.isChecked()) {
-                pathway[index] = "Network Engineer";
+                pathway[index] = "Network Engineering";
                 index++;
             }
             if(webCheBox.isChecked()) {
