@@ -38,7 +38,7 @@ import java.util.List;
 public class AddStudentActivity extends AppCompatActivity {
 
     private ImageView studentImageView;
-    private TextInputEditText nameText, studentidText, emailText, dateText,programme,moduleSelected;
+    private TextInputEditText nameText, studentidText, emailText, dateText,programmeText,moduleSelected;
     private Button cancelBtn, saveBtn;
     private Spinner pathwaySpinner;
     DBHandler dbHandler;
@@ -73,6 +73,7 @@ public class AddStudentActivity extends AppCompatActivity {
         nameText = findViewById(R.id.nameText);
         studentidText = findViewById(R.id.studentidText);
         emailText = findViewById(R.id.emailText);
+        programmeText = findViewById(R.id.programmeText);
         //phoneText = (EditText) findViewById(R.id.phoneText);
         dateText = findViewById(R.id.dateText);
         cancelBtn = findViewById(R.id.cancelBtn);
@@ -170,6 +171,8 @@ public class AddStudentActivity extends AppCompatActivity {
         studentidText.setText(studentList.get(0).getSID());
         emailText.setText(studentList.get(0).getEmail());
         dateText.setText(studentList.get(0).getDate_Enrolled());
+        programmeText.setText(studentList.get(0).getProgramme());
+        //moduleSelected.setText(studentList.get(0).getModules());
         pathwaySpinner.setSelection(index,true);
 
         //programme.setText(studentList.get(0).getProgramme());
@@ -227,6 +230,7 @@ public class AddStudentActivity extends AppCompatActivity {
         student.setSID(studentidText.getText().toString());
         student.setEmail(emailText.getText().toString());
         student.setDate_Enrolled(dateText.getText().toString());
+        student.setProgramme(programmeText.getText().toString());
         student.setSpecialisation(pathways[test]);
         Log.i("chrisita", "editStudentinfo  " + pathways[test]);
 
