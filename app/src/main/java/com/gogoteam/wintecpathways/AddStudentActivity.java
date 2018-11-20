@@ -221,8 +221,6 @@ public class AddStudentActivity extends AppCompatActivity {
 
     public void editStudentinfo() {
 
-
-
         boolean saveSuccess = true;
 
         student.setSName(nameText.getText().toString());
