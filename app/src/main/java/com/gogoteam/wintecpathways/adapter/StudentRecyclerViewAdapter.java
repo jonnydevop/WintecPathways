@@ -8,14 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gogoteam.wintecpathways.R;
 import com.gogoteam.wintecpathways.StudentModify;
 import com.gogoteam.wintecpathways.database.Student;
-import com.gogoteam.wintecpathways.student_modify_1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +51,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
                 String studentID = studentList.get(i).getSID();
 
                 // go to student modify activity and pass the student ID to the activity
-                Intent intent = new Intent(view.getContext(), student_modify_1.class);
+                Intent intent = new Intent(view.getContext(), StudentModify.class);
                 intent.putExtra("studentInfo", studentID);
                 mContext.startActivity(intent);
             }

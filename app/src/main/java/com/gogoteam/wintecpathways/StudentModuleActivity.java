@@ -1,7 +1,7 @@
 package com.gogoteam.wintecpathways;
 
 
-public class StudentProductsActivity {
+public class StudentModuleActivity {
     private String id;
     private	String MID;
     private	String MName;
@@ -20,12 +20,12 @@ public class StudentProductsActivity {
     private String button;
     private int image;
 
-    public StudentProductsActivity() { }
+    public StudentModuleActivity() { }
 
 
-    public StudentProductsActivity(String MID, String MName, String description, String level, String preMID_1, String preMID_2,
-                                   String preMID_3,String pathway_1, String pathway_2, String pathway_3, String classification,
-                                   String credits,String year, String semester, String button) {
+    public StudentModuleActivity(String MID, String MName, String description, String level, String preMID_1, String preMID_2,
+                                 String preMID_3, String pathway_1, String pathway_2, String pathway_3, String classification,
+                                 String credits, String year, String semester, String button) {
 
         this.MID = MID;
         this.MName = MName;

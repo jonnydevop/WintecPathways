@@ -26,7 +26,7 @@ public class StaffStudent extends AppCompatActivity implements SearchView.OnQuer
 
     DBHandler dbHandler;
     StudentRecyclerViewAdapter adapter;
-    private List<Student> studentList = new LinkedList<>();;
+    private List<Student> studentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

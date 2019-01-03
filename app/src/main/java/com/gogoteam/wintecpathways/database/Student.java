@@ -1,5 +1,6 @@
 package com.gogoteam.wintecpathways.database;
 
+import android.graphics.Bitmap;
 import android.media.Image;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class Student {
     private	String Programme;
     private String Date_Enrolled;
     private List<StudentModule> studentModules;
-    private String SImage;
+    private Bitmap SImage;
 
     //private int image;
 
@@ -77,11 +78,11 @@ public class Student {
         this.studentModules = modules;
     }
 
-    public void setSImage(String SImage) {
+    public void setSBitmap(Bitmap SImage) {
         this.SImage = SImage;
     }
 
-    public String getSImage() {
+    public Bitmap getSBitmap() {
         return SImage;
     }
 }

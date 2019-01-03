@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.gogoteam.wintecpathways.ItemClickListener;
 import com.gogoteam.wintecpathways.R;
-import com.gogoteam.wintecpathways.StudentProductsActivity;
+import com.gogoteam.wintecpathways.StudentModuleActivity;
 
 import java.util.List;
 
@@ -21,12 +21,12 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
 
 
     private Context context;
-    private List<StudentProductsActivity> moduleList;
+    private List<StudentModuleActivity> moduleList;
 
 
 
 
-    public ModuleAdapter(Context context, List<StudentProductsActivity> moduleList) {
+    public ModuleAdapter(Context context, List<StudentModuleActivity> moduleList) {
         this.context = context;
         this.moduleList = moduleList;
 
@@ -43,7 +43,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
     @Override
     public void onBindViewHolder(ModuleViewHolder holder, int position) {
 
-        final StudentProductsActivity module = moduleList.get(position);
+        final StudentModuleActivity module = moduleList.get(position);
         //Log.i("ModuleAdapter", "Pathway_2()  " + product.getPathway_2().length() + "   " + "Pathway_3()  " + product.getPathway_3().length());
 
         if(module != null && ( module.getPathway_1() !=null  && module.getPathway_1().length() ==0)) {

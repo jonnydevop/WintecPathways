@@ -10,6 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputEditText;
@@ -23,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +33,7 @@ import android.widget.Toast;
 import com.gogoteam.wintecpathways.database.DBHandler;
 import com.gogoteam.wintecpathways.database.Student;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -49,19 +53,10 @@ public class AddStudentActivity extends AppCompatActivity {
     private List<Student> studentList;
     int test = 0;
 
-    private ImageView studentImageView;
-    private static final int SELECT_PHOTO = 1;
+    ImageView studentImageView;
+    //static final int IMAGE_CAPTURE = 1;
+    //Bitmap thumbnail;
 
-    private boolean hasImageChanged = false;
-
-    Bitmap thumbnail;
-
-
-
-
-
-
-    //private DatePickerDialog.OnDateSetListener mDateSetListener;
     private String [] pathways =
             {" SELECT A PATHWAY ",
             "Network Engineering",
@@ -77,13 +72,12 @@ public class AddStudentActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        Log.i("chrisita", "oncreate  " + studentID);
+
         studentImageView = (ImageView)findViewById(R.id.studentImageView);
         nameText = findViewById(R.id.nameText);
         studentidText = findViewById(R.id.studentidText);
         emailText = findViewById(R.id.emailText);
         programmeText = findViewById(R.id.programmeText);
-        //phoneText = (EditText) findViewById(R.id.phoneText);
         dateText = findViewById(R.id.dateText);
         cancelBtn = findViewById(R.id.cancelBtn);
         saveBtn = findViewById(R.id.saveBtn);
@@ -100,7 +94,6 @@ public class AddStudentActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 test = position;
 
-                Log.i("chrisita", "set position =  "+ position + " " +pathways[position]);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -117,10 +110,17 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dbHandler = new DBHandler(AddStudentActivity.this,null,null,1);
-                Intent intent = new Intent();
+/*                Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,"Select Contact Image"), 1);
+                startActivityForResult(Intent.createChooser(intent,"Select Contact Image"), 1);*/
+
+
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if(intent.resolveActivity(getPackageManager()) != null){
+                    startActivityForResult(intent, 0);
+                }
+
 
             }
         });
@@ -152,25 +152,43 @@ public class AddStudentActivity extends AppCompatActivity {
         studentID = studentInfo.getString("studentInfo");
         showStudentInfo();
     }
+
+    public void onActivityResult(int reqCode, int resCode, Intent data){
+        super.onActivityResult(reqCode, resCode, data);
+
+  /*      if(reqCode == IMAGE_CAPTURE){
+            if(reqCode == RESULT_OK){
+                try{
+                    final Uri imageUri = data.getData();
+                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    //setProgressBar();
+                    studentImageView.setImageBitmap(selectedImage);
+                } catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
+            }
+        }*/
+
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        studentImageView.setImageBitmap(thumbnail);
+
+        /*if(reqCode == 0){
+            if(reqCode == RESULT_OK){
+                Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                studentImageView.setMaxWidth(200);
+                studentImageView.setImageBitmap(thumbnail);
+            }
+        }*/
+
+    }
     public void showStudentInfo()
     {
-        // get the module code from module view ( module list)
-        //String[] pathway = {"Network Engineering", "Software Engineering", "Database Architecture", "Multimedia and Web Development"};
+
         student.setSID(studentID);
 
-
-
-
-        Log.i("chrisita", "showStudentInfo  " + studentID);
         // get module deatils from DB by sending module code
         studentList = dbHandler.searchStudent(student);
-        Log.i("chrisita", "showStudentInfo  " + studentList.get(0).getSName() + " " +
-                studentList.get(0).getSID() + " " +
-                studentList.get(0).getEmail() + " " +
-                studentList.get(0).getSpecialisation() + " " +
-                studentList.get(0).getDate_Enrolled() + " " +
-                studentList.get(0).getSImage());
-
         pathwayText = studentList.get(0).getSpecialisation();
         int index = 0;
 
@@ -181,11 +199,6 @@ public class AddStudentActivity extends AppCompatActivity {
                 index = i;
             }
         }
-   /*     byte[] Image;
-        Image = studentList.get(studentList.getColumnIndex("img_str"));
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        decodedByte = BitmapFactory.decodeByteArray(Image, 0,Image.length, options);
-        arr_img.add(decodedByte);*/
 
         //private String name, studentid, email, date,programme,pathwayText,moduleSelected;
         nameText.setText(studentList.get(0).getSName());
@@ -193,20 +206,16 @@ public class AddStudentActivity extends AppCompatActivity {
         emailText.setText(studentList.get(0).getEmail());
         dateText.setText(studentList.get(0).getDate_Enrolled());
         programmeText.setText(studentList.get(0).getProgramme());
-        //studentImageView.setImageBitmap(studentList.get(0).getSImage());
-        //moduleSelected.setText(studentList.get(0).getModules());
         pathwaySpinner.setSelection(index,true);
+        if(studentList.get(0).getSBitmap() != null){
+            studentImageView.setImageBitmap(studentList.get(0).getSBitmap());
+        }
+        /*byte [] byteArr = image.getBytes();
+        //ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArr);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArr, 0, byteArr.length);
+        studentImageView.setImageBitmap(bitmap);*/
 
-        //programme.setText(studentList.get(0).getProgramme());
-        //pathwayText.setText(studentList.get(0).getSpecialisation());
-        //moduleSelected.setText((CharSequence) studentList.get(0).getModules());
 
-
-        // log for testing DB, these details should be shown on layout, GOGO Juan!!
-        Log.i("chrisita", "showStudentInfo  " + studentList.get(0).getSName() + " " +
-                studentList.get(0).getSID() + " " +
-                studentList.get(0).getEmail() + " " + index + "   " +
-                studentList.get(0).getDate_Enrolled() + " ");
     }
 
     // when save button is clicked
@@ -249,10 +258,10 @@ public class AddStudentActivity extends AppCompatActivity {
         boolean saveSuccess = true;
 
 
-        Bitmap bitmap = ((BitmapDrawable)studentImageView.getDrawable()).getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] data = baos.toByteArray();
+
+/*        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);
+        byte[] data = baos.toByteArray();*/
 
         student.setSName(nameText.getText().toString());
         student.setSID(studentidText.getText().toString());
@@ -260,7 +269,8 @@ public class AddStudentActivity extends AppCompatActivity {
         student.setDate_Enrolled(dateText.getText().toString());
         student.setProgramme(programmeText.getText().toString());
         student.setSpecialisation(pathways[test]);
-        student.setSImage(data.toString());
+        Bitmap bitmap = ((BitmapDrawable)studentImageView.getDrawable()).getBitmap();
+        student.setSBitmap(bitmap);
         Log.i("chrisita", "editStudentinfo  " + pathways[test]);
 
 
@@ -291,23 +301,5 @@ public class AddStudentActivity extends AppCompatActivity {
             finish();
         }
     }
-
-    public void onActivityResult(int reqCode, int resCode, Intent data){
-        if(resCode == RESULT_OK){
-            if(reqCode == 1){
-                try{
-                    final Uri imageUri = data.getData();
-                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                    //studentImageView.setImageURI(data.getData());
-                    studentImageView.setImageBitmap(selectedImage);
-                }catch (FileNotFoundException e){
-                    e.printStackTrace();
-                }
-
-            }
-        }
-    }
-
 
 }

@@ -7,11 +7,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.gogoteam.wintecpathways.database.DBHandler;
@@ -44,7 +42,6 @@ public class ModuleModify extends AppCompatActivity {
         }
 
         moduleID = moduleInfo.getString("moduleInfo");
-        Log.i("chris", "ModuleModify onCreate  " + moduleID);
 
         showModuleInfo();
     }
@@ -80,7 +77,7 @@ public class ModuleModify extends AppCompatActivity {
         // get the module code from module view ( module list)
         module.setMID(moduleID);
 
-        Log.i("chris", "ModuleModify showModuleInfo  " + moduleID);
+
         // get module deatils from DB by sending module code
         moduleList = dbHandler.searchModule(module);
         if(!moduleList.get(0).getPathway_1().equals(""))
@@ -115,23 +112,6 @@ public class ModuleModify extends AppCompatActivity {
             descripTxt.setText(moduleList.get(0).getDescription());
             descripTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
         }
-
-
-        // log for testing DB, these details should be shown on layout, GOGO Juan!!
-        Log.i("chris", "ModuleModify showModuleInfo  " + moduleList.get(0).getMID() + " " +
-                moduleList.get(0).getMName() + " " +
-                moduleList.get(0).getClassification() + " " +
-                moduleList.get(0).getSemester() + " " +
-                moduleList.get(0).getLevel() + " " +
-                moduleList.get(0).getPathway_1()+ " " +
-                moduleList.get(0).getPathway_2()+ " " +
-                moduleList.get(0).getPathway_3()+ " " +
-                moduleList.get(0).getPreMID_1() + " " +
-                moduleList.get(0).getPreMID_2() + " " +
-                moduleList.get(0).getPreMID_3() + " " +
-                moduleList.get(0).getYear() + " " +
-                moduleList.get(0).getCredits() + " " +
-                moduleList.get(0).getDescription());
     }
 
     // when click delete button
@@ -156,7 +136,7 @@ public class ModuleModify extends AppCompatActivity {
         AlertDialog disc = builder.create();
         disc.setContentView(R.layout.delete_dialog);
         disc.show();
-        //disc.getWindow().setBackgroundDrawableResource(R.color.orangecard);
+
 
         TextView messageText = (TextView)disc.findViewById( android.R.id.message );
         messageText.setGravity( Gravity.CENTER_HORIZONTAL );

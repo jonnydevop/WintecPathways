@@ -78,6 +78,7 @@ public class StaffActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
             case R.id.importitem:
+                //dbHandler.deletetable();
                 dbHandler.loadData();
                 //TextView buckysText1 = (TextView)findViewById(R.id.studentSearchText);
                 //buckysText1.setText(String.valueOf(a));
@@ -96,24 +97,6 @@ public class StaffActivity extends AppCompatActivity {
                         });
                 AlertDialog disc = builder.create();
                 disc.show();
-                /*
-                String state = Environment.getExternalStorageState();
-                //When External Storage is available
-                if(state.equals(Environment.MEDIA_MOUNTED)) {
-                    File sdCard = Environment.getExternalStorageDirectory();
-                    File file = new File(sdCard,"export.txt");
-
-                    try {
-                        FileOutputStream outputStream = new FileOutputStream(file);//打开文件输出流
-                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));//写入到缓存流
-                        writer.write("data here");//从从缓存流写入
-                        writer.close();//关闭流
-                        Toast.makeText(this, "Sucess!", Toast.LENGTH_SHORT).show();
-                    }
-                    catch(Exception exception) {
-                        Toast.makeText(this, "failed!"+exception.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }*/
                 return true;
         }
         return false;

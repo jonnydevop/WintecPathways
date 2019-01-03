@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.media.Image;
 import android.util.Log;
+
+import com.gogoteam.wintecpathways.Utility;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -98,6 +99,13 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENT_MODULE);
         onCreate(db);
     }
+    public void deletetable(){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENT);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_MODULE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENT_MODULE);
+        onCreate(sqLiteDatabase);
+    }
 
     /////////////////////////Student method begins here////////////////////////////
 
@@ -118,7 +126,9 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_Specialisation, student.getSpecialisation());
         values.put(COLUMN_Programme, student.getProgramme());
         values.put(COLUMN_Date_Enrolled, student.getDate_Enrolled());
-        values.put(COLUMN_SImage, student.getSImage());
+        if(student.getSBitmap()!= null) {
+            values.put(COLUMN_SImage, Utility.getBytes(student.getSBitmap()));
+        }
         db.insert(TABLE_STUDENT, null, values);
 
         //Add Student Module
@@ -158,7 +168,9 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_Specialisation, student.getSpecialisation());
         values.put(COLUMN_Programme, student.getProgramme());
         values.put(COLUMN_Date_Enrolled, student.getDate_Enrolled());
-        values.put(COLUMN_SImage, student.getSImage());
+        if(student.getSBitmap()!=null) {
+            values.put(COLUMN_SImage, Utility.getBytes(student.getSBitmap()));
+        }
         whereArgs[0] = student.getSID();
         Log.i("chrisita", "DB updateStudent getSID; " + student.getSID());
 
@@ -243,6 +255,7 @@ public class DBHandler extends SQLiteOpenHelper {
         query = query + " ORDER BY " + COLUMN_SID;
         c = db.rawQuery(query,null);
         //Move to the first row in your results
+        byte[] result = null;
         c.moveToFirst();
 
         while (!c.isAfterLast()) {
@@ -254,7 +267,10 @@ public class DBHandler extends SQLiteOpenHelper {
             student.setSpecialisation(c.getString(c.getColumnIndex("Specialisation")));
             student.setProgramme(c.getString(c.getColumnIndex("Programme")));
             student.setDate_Enrolled(c.getString(c.getColumnIndex("Date_Enrolled")));
-            student.setSImage(c.getString(c.getColumnIndex("SImage")));
+            result = c.getBlob(c.getColumnIndex("SImage"));
+            if(result != null) {
+                student.setSBitmap(Utility.getPhoto(result));
+            }
 
             //student module information
             student.setModules(searchStudentModule(c.getString(c.getColumnIndex("SID"))));

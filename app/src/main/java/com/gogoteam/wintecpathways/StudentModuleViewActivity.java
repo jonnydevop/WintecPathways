@@ -4,11 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TabHost;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.gogoteam.wintecpathways.adapter.ModuleAdapter;
 import com.gogoteam.wintecpathways.database.DBHandler;
@@ -23,9 +20,9 @@ import java.util.List;
 public class StudentModuleViewActivity extends AppCompatActivity {
 
     //a list to store all the products
-    List<StudentProductsActivity> moduleListYear1;
-    List<StudentProductsActivity> moduleListYear2;
-    List<StudentProductsActivity> moduleListYear3;
+    List<StudentModuleActivity> moduleListYear1;
+    List<StudentModuleActivity> moduleListYear2;
+    List<StudentModuleActivity> moduleListYear3;
 
 
     //access db
@@ -56,18 +53,12 @@ public class StudentModuleViewActivity extends AppCompatActivity {
 
         actionBar.setTitle(pathway);
 
-        Log.i("StudentModuleViewAivity", "Pathway:" + pathway);
+
 
         //Retrieve modules information
         dbHandler = new DBHandler(this, null, null, 1);
         moduleList = dbHandler.retrievePathway(pathway);
 
-        Log.i("StudentModuleViewAivity", "Modules list size:  " + String.valueOf(moduleList.size()));
-
-        /** for(int j=0;j < moduleList.size();j++)
-            Log.i("StudentModuleViewAivity",
-                    "Year:"+moduleList.get(j).getYear()
-                    + "    " + "Modules Name:  " + moduleList.get(j).getMName()); */
 
         //TAB1
         TabHost.TabSpec spec = tabHost.newTabSpec("Year one ");
@@ -82,7 +73,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
            // First year modules
            for (int i = 0; i < 8; i++) {
 
-               moduleListYear1.add(new StudentProductsActivity(
+               moduleListYear1.add(new StudentModuleActivity(
                        moduleList.get(i).getMID(),
                        moduleList.get(i).getMName(),
                        moduleList.get(i).getDescription(),
@@ -121,7 +112,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
             //adding some items to our list
             for (int i = 8; i < 16; i++) {
 
-                moduleListYear2.add(new StudentProductsActivity(
+                moduleListYear2.add(new StudentModuleActivity(
                         moduleList.get(i).getMID(),
                         moduleList.get(i).getMName(),
                         moduleList.get(i).getDescription(),
@@ -161,7 +152,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
             //adding some items to our list
             for (int i = 16; i < moduleList.size() ; i++) {
 
-                moduleListYear3.add(new StudentProductsActivity(
+                moduleListYear3.add(new StudentModuleActivity(
                         moduleList.get(i).getMID(),
                         moduleList.get(i).getMName(),
                         moduleList.get(i).getDescription(),
@@ -212,18 +203,12 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         // get the module code from module view ( module list)
         module.setMID(moduleID);
 
-        Log.i("StudentModuleViewAcvity", "showModuleInfo  " + moduleID);
+
         // get module deatils from DB by sending module code
         moduleList = dbHandler.searchModule(module);
 
         // log for testing DB, these details should be shown on layout
-        Log.i("StudentModuleViewAivity", "showModuleInfo  " + moduleList.get(0).getMID() + " " +
-                moduleList.get(0).getClassification() + " " +
-                moduleList.get(0).getSemester() + " " +
-                moduleList.get(0).getMName() + " " +
-                moduleList.get(0).getPathway_1()+ " " +
-                moduleList.get(0).getPreMID_1() + " " +
-                moduleList.get(0).getYear());
+
 
         moduleList.get(0).getMID();
         moduleList.get(0).getClassification();
