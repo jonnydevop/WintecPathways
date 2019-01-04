@@ -54,8 +54,7 @@ public class AddStudentActivity extends AppCompatActivity {
     int test = 0;
 
     ImageView studentImageView;
-    //static final int IMAGE_CAPTURE = 1;
-    //Bitmap thumbnail;
+
 
     private String [] pathways =
             {" SELECT A PATHWAY ",
@@ -110,7 +109,7 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dbHandler = new DBHandler(AddStudentActivity.this,null,null,1);
-/*                Intent intent = new Intent();
+/*               Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent,"Select Contact Image"), 1);*/
@@ -169,9 +168,16 @@ public class AddStudentActivity extends AppCompatActivity {
                 }
             }
         }*/
+        if(reqCode == 0) {
+            try {
+                Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                studentImageView.setImageBitmap(thumbnail);
+                return;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
-        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-        studentImageView.setImageBitmap(thumbnail);
 
         /*if(reqCode == 0){
             if(reqCode == RESULT_OK){
@@ -210,11 +216,6 @@ public class AddStudentActivity extends AppCompatActivity {
         if(studentList.get(0).getSBitmap() != null){
             studentImageView.setImageBitmap(studentList.get(0).getSBitmap());
         }
-        /*byte [] byteArr = image.getBytes();
-        //ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArr);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArr, 0, byteArr.length);
-        studentImageView.setImageBitmap(bitmap);*/
-
 
     }
 
