@@ -17,15 +17,14 @@ public class StudentModuleActivity {
     private String credits;
     private String year;
     private String semester;
-    private String button;
-    private int image;
+
 
     public StudentModuleActivity() { }
 
 
     public StudentModuleActivity(String MID, String MName, String description, String level, String preMID_1, String preMID_2,
                                  String preMID_3, String pathway_1, String pathway_2, String pathway_3, String classification,
-                                 String credits, String year, String semester, String button) {
+                                 String credits, String year, String semester) {
 
         this.MID = MID;
         this.MName = MName;
@@ -41,8 +40,8 @@ public class StudentModuleActivity {
         this.credits = credits;
         this.year = year;
         this.semester = semester;
-        this.button = button;
-        //this.image = image;
+
+
     }
 
 
@@ -166,19 +165,5 @@ public class StudentModuleActivity {
         this.semester = semester;
     }
 
-    public String getButton() {
-        return button;
-    }
 
-    public void setButton(String button) {
-        this.button = button;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
 }

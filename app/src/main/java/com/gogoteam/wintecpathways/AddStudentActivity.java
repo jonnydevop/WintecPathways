@@ -72,7 +72,7 @@ public class AddStudentActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        studentImageView = (ImageView)findViewById(R.id.studentImageView);
+        studentImageView = findViewById(R.id.studentImageView);
         nameText = findViewById(R.id.nameText);
         studentidText = findViewById(R.id.studentidText);
         emailText = findViewById(R.id.emailText);
@@ -178,7 +178,6 @@ public class AddStudentActivity extends AppCompatActivity {
             }
         }
 
-
         /*if(reqCode == 0){
             if(reqCode == RESULT_OK){
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
@@ -186,7 +185,6 @@ public class AddStudentActivity extends AppCompatActivity {
                 studentImageView.setImageBitmap(thumbnail);
             }
         }*/
-
     }
     public void showStudentInfo()
     {

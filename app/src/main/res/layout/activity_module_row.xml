@@ -1,48 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    android:background="@color/lightgrey">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/stdPathwayModID"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
-
-
+    >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
             <TextView
                 android:id="@+id/moduleIDView"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@color/colorblue"
                 android:gravity="center"
+                android:layout_weight="1"
                 android:text="Module Code"
+                android:textStyle="italic"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp">
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
-                    android:layout_width="240dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -51,11 +56,10 @@
 
                     <TextView
                         android:id="@+id/moduleNameView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="Module Name"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
@@ -101,9 +105,8 @@
                             android:layout_height="25dp"
                             android:layout_row="1"
                             android:layout_column="0"
-                            android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="1dp"
                             android:text="Semester"
                             android:textSize="16sp"
                             android:textStyle="italic" />
@@ -115,21 +118,20 @@
                             android:text="1"
                             android:textSize="16sp"
                             android:textStyle="italic" />
-
                     </LinearLayout>
 
-                    <Switch
+                    <android.support.v7.widget.SwitchCompat
                         android:id="@+id/moduleButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
                         android:layout_weight="2"
-                        android:backgroundTint="@color/colorblue"
-                        android:textOff="Not completed"
+                        android:checked="false"
+                        android:buttonTintMode="@color/colorAccent"
                         android:textOn="Completed"
+                        android:textOff="Not Completed"
+                        android:textColor="@android:color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -138,11 +140,8 @@
                         app:layout_constraintVertical_bias="0.0" />
                 </android.support.constraint.ConstraintLayout>
 
-
-
-
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
-</LinearLayout>
+
 

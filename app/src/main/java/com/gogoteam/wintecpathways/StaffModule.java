@@ -1,6 +1,7 @@
 package com.gogoteam.wintecpathways;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +67,25 @@ public class StaffModule extends AppCompatActivity implements SearchView.OnQuery
         adapter = new RecyclerViewAdapter(this, moduleList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //Hide floating button on Scroll
+        final FloatingActionButton addBtn = findViewById(R.id.addBtn);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+
+                if(dy < 0){
+                    addBtn.show();
+                } else if (dy > 0){
+                    addBtn.hide();
+                }
+            }
+        });
     }
 
     private void addModule(View v)

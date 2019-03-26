@@ -32,7 +32,7 @@
                     android:id="@+id/year1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#dadada"
+                    android:background="#ededed"
                     android:orientation="vertical">
 
                     <android.support.v7.widget.RecyclerView
@@ -51,7 +51,7 @@
                     android:id="@+id/year2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#fafafa"
+                    android:background="#ededed"
                     android:orientation="vertical">
 
                     <android.support.v7.widget.RecyclerView

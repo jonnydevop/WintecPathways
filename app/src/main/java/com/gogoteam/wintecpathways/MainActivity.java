@@ -1,7 +1,5 @@
 package com.gogoteam.wintecpathways;
 
-
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +11,6 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 
 
 public class MainActivity extends AppCompatActivity {

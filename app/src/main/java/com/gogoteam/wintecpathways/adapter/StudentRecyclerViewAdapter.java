@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.ViewHolder>{
+
     private List<Student> studentList;
     private Context mContext;
-   // ImageView imageView;
 
     public StudentRecyclerViewAdapter(Context context, List<Student> studentList) {
         Log.i("Nancy", "RecyclerViewAdapter  ");
@@ -32,7 +33,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_list_item ,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.student_list_layout ,viewGroup,false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -42,8 +43,10 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
         // i is the number of the list that the recyclerView need to show
         viewHolder.studentCode.setText(studentList.get(i).getSID());
         viewHolder.studentName.setText(studentList.get(i).getSName());
-        //viewHolder.imageView.setImageAlpha(studentList.get(i).getImage());
-        //viewHolder.studentCode.setText(studentList.get(i).getSName());
+        if(studentList.get(i).getSBitmap()!=null) {
+            viewHolder.studentImage.setImageBitmap(studentList.get(i).getSBitmap());
+        }
+
 
         viewHolder.parentView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +71,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
 
         TextView studentCode;
         TextView studentName;
-        //ImageView imageView;
+        ImageView studentImage;
 
         RelativeLayout parentView;
 
@@ -76,7 +79,7 @@ public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecy
             super(itemView);
             studentCode = itemView.findViewById(R.id.moduleText);
             studentName = itemView.findViewById(R.id.moduleDesc);
-            //imageView = itemView.findViewById(R.id.imageView);
+            studentImage = itemView.findViewById(R.id.thumbnail);
             parentView = itemView.findViewById(R.id.parentView);
         }
     }

@@ -84,7 +84,9 @@ public class StudentModify extends AppCompatActivity {
         date.setText(studentList.get(0).getDate_Enrolled());
         programme.setText(studentList.get(0).getProgramme());
         pathway.setText(studentList.get(0).getSpecialisation());
-        studentImageView.setImageBitmap(studentList.get(0).getSBitmap());
+        if(studentList.get(0).getSBitmap()!=null) {
+            studentImageView.setImageBitmap(studentList.get(0).getSBitmap());
+        }
 
         if (studentList.get(0).getModules() != null) {
             for (int i = 0; i < studentList.get(0).getModules().size(); i++) {

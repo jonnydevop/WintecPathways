@@ -55,20 +55,16 @@
         </LinearLayout>
     </RelativeLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
         android:fillViewport="true"> >
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,11 +77,20 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 >
-                <ImageView
+                <!--<ImageView
                     android:id="@+id/studentImageView"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    app:srcCompat="@mipmap/nouserlogo" />
+                    app:srcCompat="@mipmap/nouserlogo" />-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/studentImageView"
+                    android:layout_gravity="center"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:civ_border_color="#dedede"
+                    android:src="@mipmap/nouserlogo"
+                    android:layout_centerHorizontal="true"
+                    app:civ_border_width="1dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -269,16 +274,7 @@
                 </Spinner>
             </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
     </ScrollView>
-
-
-
-
-
-
-
 
 </RelativeLayout>

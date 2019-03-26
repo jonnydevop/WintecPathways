@@ -1,10 +1,14 @@
 package com.gogoteam.wintecpathways;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.TabHost;
 
 import com.gogoteam.wintecpathways.adapter.ModuleAdapter;
@@ -23,6 +27,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
     List<StudentModuleActivity> moduleListYear1;
     List<StudentModuleActivity> moduleListYear2;
     List<StudentModuleActivity> moduleListYear3;
+    SwitchCompat moduleButton;
 
 
     //access db
@@ -39,7 +44,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pathway_view);
 
         ActionBar actionBar = getSupportActionBar();
-
+        moduleButton = (SwitchCompat) findViewById(R.id.moduleButton);
 
 
         //tabHost
@@ -87,8 +92,8 @@ public class StudentModuleViewActivity extends AppCompatActivity {
                        moduleList.get(i).getClassification(),
                        moduleList.get(i).getCredits(),
                        moduleList.get(i).getYear(),
-                       moduleList.get(i).getSemester(),
-                       "Completed"
+                       moduleList.get(i).getSemester()
+
                        // R.drawable.applecrumbleimage
                ));
            }
@@ -98,6 +103,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
            ModuleAdapter adapter = new ModuleAdapter(this, moduleListYear1);
            recyclerView.setAdapter(adapter);
            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
        }
 
 
@@ -126,8 +132,7 @@ public class StudentModuleViewActivity extends AppCompatActivity {
                         moduleList.get(i).getClassification(),
                         moduleList.get(i).getCredits(),
                         moduleList.get(i).getYear(),
-                        moduleList.get(i).getSemester(),
-                        "Completed"
+                        moduleList.get(i).getSemester()
                         // R.drawable.applecrumbleimage
                 ));
             }
@@ -166,9 +171,8 @@ public class StudentModuleViewActivity extends AppCompatActivity {
                         moduleList.get(i).getClassification(),
                         moduleList.get(i).getCredits(),
                         moduleList.get(i).getYear(),
-                        moduleList.get(i).getSemester(),
-                        "Completed"
-                        // R.drawable.applecrumbleimage
+                        moduleList.get(i).getSemester()
+
                 ));
               }
            }
@@ -207,8 +211,6 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         // get module deatils from DB by sending module code
         moduleList = dbHandler.searchModule(module);
 
-        // log for testing DB, these details should be shown on layout
-
 
         moduleList.get(0).getMID();
         moduleList.get(0).getClassification();
@@ -228,5 +230,4 @@ public class StudentModuleViewActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }

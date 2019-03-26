@@ -49,7 +49,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:onClick="networkingClick"
                 app:cardBackgroundColor="@color/orangecard"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp">
@@ -83,7 +82,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:onClick="softwareClick"
                 app:cardBackgroundColor="@color/orangecard"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp">
@@ -117,7 +115,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:onClick="databasesClick"
                 app:cardBackgroundColor="@color/orangecard"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp">
@@ -150,7 +147,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:onClick="multimediaClick"
                 app:cardBackgroundColor="@color/orangecard"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp">

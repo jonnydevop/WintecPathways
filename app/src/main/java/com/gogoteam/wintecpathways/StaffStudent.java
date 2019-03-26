@@ -1,10 +1,13 @@
 package com.gogoteam.wintecpathways;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -50,6 +53,7 @@ public class StaffStudent extends AppCompatActivity implements SearchView.OnQuer
 
         initModuleList();
         initRecyclerView();
+
     }
     private void initModuleList()
     {
@@ -63,6 +67,27 @@ public class StaffStudent extends AppCompatActivity implements SearchView.OnQuer
         adapter = new StudentRecyclerViewAdapter(this, studentList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new MyDividerItemDecoration(this,DividerItemDecoration.VERTICAL, 36));
+
+        //Hide floating button on Scroll
+        final FloatingActionButton addBtn = findViewById(R.id.addBtn);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+
+                if(dy < 0){
+                    addBtn.show();
+                } else if (dy > 0){
+                    addBtn.hide();
+                }
+            }
+        });
     }
 
     private void addStudent(View v)

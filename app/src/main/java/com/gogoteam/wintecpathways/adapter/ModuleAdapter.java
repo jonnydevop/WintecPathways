@@ -1,14 +1,20 @@
 package com.gogoteam.wintecpathways.adapter;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.TabWidget;
 import android.widget.TextView;
 
 import com.gogoteam.wintecpathways.ItemClickListener;
@@ -23,14 +29,9 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
     private Context context;
     private List<StudentModuleActivity> moduleList;
 
-
-
-
     public ModuleAdapter(Context context, List<StudentModuleActivity> moduleList) {
         this.context = context;
         this.moduleList = moduleList;
-
-
     }
 
     @Override
@@ -41,25 +42,52 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
     }
 
     @Override
-    public void onBindViewHolder(ModuleViewHolder holder, int position) {
+    public void onBindViewHolder(final ModuleViewHolder holder, int position) {
 
         final StudentModuleActivity module = moduleList.get(position);
+        //context = holder.itemView.getContext();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        boolean pref = sharedPreferences.getBoolean("pref" + position,false);
         //Log.i("ModuleAdapter", "Pathway_2()  " + product.getPathway_2().length() + "   " + "Pathway_3()  " + product.getPathway_3().length());
 
         if(module != null && ( module.getPathway_1() !=null  && module.getPathway_1().length() ==0)) {
             holder.moduleNameView.setText(module.getMName());
             holder.moduleIDView.setText(module.getMID());
-            holder.moduleButton.setText(String.valueOf(module.getButton()));
+            /*if(pref) {
+                holder.moduleButton.setChecked(true);
+
+            }else{
+                holder.moduleButton.setChecked(false);
+            }
+           // holder.moduleButton.setText("Not Completed");*/
             holder.moduleSemesterView.setText(module.getSemester());
-            //holder.imageView.setImageAlpha(product.getImage());
-        }else
-        {
+
+        }else{
             holder.moduleNameView.setText(module.getMName());
             holder.moduleIDView.setText(module.getMID());
-            holder.moduleButton.setText(String.valueOf(module.getButton()));
+           /* if(pref) {
+                holder.moduleButton.setChecked(true);
+            }else{
+                holder.moduleButton.setChecked(false);
+            }*/
+            //holder.moduleButton.setText("Not Completed");
             holder.moduleSemesterView.setText(module.getSemester());
             holder.moduleIDView.setBackgroundResource(R.color.colorAccent);
         }
+
+        /*holder.moduleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (holder.moduleButton.isChecked()) {
+                    holder.moduleButton.setText("Completed");
+
+                }
+                if(!holder.moduleButton.isChecked()){
+                    holder.moduleButton.setText("");
+
+                }
+            }
+        });*/
 
         // open the dialog window to display the module information
         holder.setItemClickListener(new ItemClickListener() {
@@ -163,26 +191,47 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ModuleView
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
-        TextView moduleNameView, moduleIDView, moduleSemesterView, moduleButton;
-        TextView textView;
-        //LinearLayout stdPathwayModID;
+        TextView moduleNameView, moduleIDView, moduleSemesterView;
+        SwitchCompat moduleButton;
+
 
         private ItemClickListener itemClickListener;
 
-        public ModuleViewHolder(View itemView) {
+        public ModuleViewHolder(final View itemView) {
             super(itemView);
             moduleNameView = itemView.findViewById(R.id.moduleNameView);
             moduleIDView = itemView.findViewById(R.id.moduleIDView);
             moduleButton = itemView.findViewById(R.id.moduleButton);
             moduleSemesterView = itemView.findViewById(R.id.moduleSemesterView);
-            //stdPathwayModID = itemView.findViewById(R.id.stdPathwayModID);.
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
+
+            /*moduleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (moduleButton.isChecked()) {
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("pref" +getAdapterPosition(), true);
+                        editor.commit();
+
+                    }
+                    if(!moduleButton.isChecked()){
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("pref" + getAdapterPosition(), false);
+                        editor.commit();
+
+                    }
+                }
+            });*/
+
         }
         public void setItemClickListener(ItemClickListener itemClickListener){
             this.itemClickListener = itemClickListener;
         }
+
 
         @Override
         public void onClick(View v) {

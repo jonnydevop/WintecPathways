@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="5dp"
-    android:layout_gravity="center"
-    android:background="@drawable/pop_bg"
-    >
+    android:layout_gravity="center">
 
-
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        android:gravity="center">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
-
-
     <TextView
         android:id="@+id/closeDialog"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:textColor="@android:color/black"
         android:text="X"
-        android:background="@drawable/circlebkg"
+
         android:layout_gravity="end"
         android:textStyle="bold"
         android:gravity="center"
@@ -293,11 +291,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text=""
+            android:padding="5dp"
             android:textColor="@android:color/background_dark"
             android:textSize="18dp"
             android:textStyle="bold" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -313,6 +311,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:padding="5dp"
             android:text="Refer to web link for the most up-to-date details of module pathways: https://www.wintec.ac.nz/study-at-wintec/courses/information-technology/bachelor-of-applied-information-technology"
             android:textColor="@android:color/background_dark"
             android:textSize="10dp"
@@ -320,7 +319,6 @@
     </LinearLayout>
     </LinearLayout>
     </ScrollView>
-
-
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
 
